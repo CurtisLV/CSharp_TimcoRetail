@@ -14,15 +14,17 @@ namespace TRMDataManager.App_Start
             if (operation.parameters == null)
             {
                 operation.parameters = new List<Parameter>();
-                operation.parameters.Add(new Parameter
-                {
-                    name = "Authorization",
-                    @in = "header",
-                    description = "access token",
-                    required = true,
-                    type = "string"
-                });     
             }
+                
+            operation.parameters.Add(new Parameter()
+            {
+                name = "Authorization",
+                @in = "header",
+                description = "access token",
+                required = true,
+                type = "string"
+            });     
+            
         }
     }
 }
