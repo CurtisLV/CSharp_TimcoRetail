@@ -11,7 +11,18 @@ namespace TRMDataManager.App_Start
     {
         public void Apply(Operation operation, SchemaRegistry schemaRegistry, ApiDescription apiDescription)
         {
-            throw new NotImplementedException();
+            if (operation.parameters == null)
+            {
+                operation.parameters = new List<Parameter>();
+                operation.parameters.Add(new Parameter
+                {
+                    name = "Authorization",
+                    @in = "header",
+                    description = "access token",
+                    required = true,
+                    type = "string"
+                });     
+            }
         }
     }
 }
