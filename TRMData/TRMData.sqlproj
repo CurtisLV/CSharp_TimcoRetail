@@ -59,6 +59,8 @@
     <Folder Include="dbo" />
     <Folder Include="dbo\Views" />
     <Folder Include="PublishLocations" />
+    <Folder Include="dbo\Stored Procedures" />
+    <Folder Include="dbo\Tables" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PublishLocations\TRMData.publish.xml" />
