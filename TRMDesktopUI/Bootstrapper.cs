@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using Caliburn.Micro;
 using TRMDesktopUI.ViewModels;
@@ -11,8 +9,8 @@ namespace TRMDesktopUI
 {
     public class Bootstrapper : BootstrapperBase
     {
-
         private SimpleContainer _container = new SimpleContainer();
+
         public Bootstrapper()
         {
             Initialize();
@@ -25,6 +23,20 @@ namespace TRMDesktopUI
             _container
                 .Singleton<IWindowManager, WindowManager>()
                 .Singleton<IEventAggregator, EventAggregator>();
+
+            GetType().Assembly
+                .GetTypes()
+                .Where(type => type.IsClass)
+                .Where(type => type.Name.EndsWith("ViewModel"))
+                .ToList()
+                .ForEach(
+                    viewModelType =>
+                        _container.RegisterPerRequest(
+                            viewModelType,
+                            viewModelType.ToString(),
+                            viewModelType
+                        )
+                );
         }
 
         protected override void OnStartup(object sender, StartupEventArgs e)
@@ -48,4 +60,3 @@ namespace TRMDesktopUI
         }
     }
 }
-
