@@ -32,5 +32,11 @@ namespace TRMDesktopUI
         {
             return _container.GetAllInstances(service);
         }
+
+        protected override void BuildUp(object instance)
+        {
+            _container.BuildUp(instance);
+        }
     }
+}
 
