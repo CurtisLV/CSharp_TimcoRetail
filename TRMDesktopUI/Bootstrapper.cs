@@ -22,5 +22,11 @@ namespace TRMDesktopUI
         {
             DisplayRootViewForAsync<ShellViewModel>();
         }
+
+        protected override object GetInstance(Type service, string key)
+        {
+            return _container.GetInstance(service, key);
+        }
     }
 }
+
