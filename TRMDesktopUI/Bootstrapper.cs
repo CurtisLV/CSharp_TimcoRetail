@@ -27,6 +27,10 @@ namespace TRMDesktopUI
         {
             return _container.GetInstance(service, key);
         }
+
+        protected override IEnumerable<object> GetAllInstances(Type service)
+        {
+            return _container.GetAllInstances(service);
+        }
     }
-}
 
