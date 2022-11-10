@@ -8,5 +8,6 @@ namespace TRMDesktopUI.ViewModels
 {
     internal class ShellViewModel
     {
+        //
     }
 }
