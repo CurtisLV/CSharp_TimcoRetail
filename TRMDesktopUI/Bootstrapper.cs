@@ -11,6 +11,8 @@ namespace TRMDesktopUI
 {
     public class Bootstrapper : BootstrapperBase
     {
+
+        private SimpleContainer _container = new SimpleContainer();
         public Bootstrapper()
         {
             Initialize();
