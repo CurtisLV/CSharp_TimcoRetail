@@ -4,10 +4,7 @@ namespace TRMDesktopUI
 {
     public interface ICalculations
     {
-        List<string> Register {
-            get;
-            set;
-        }
+        List<string> Register { get; set; }
 
         double Add(double x, double y);
     }
