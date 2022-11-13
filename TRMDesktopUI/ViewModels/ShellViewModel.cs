@@ -8,11 +8,6 @@ namespace TRMDesktopUI.ViewModels
 {
     internal class ShellViewModel
     {
-        private ICalculations _calculations;
-
-        public ShellViewModel(ICalculations calculations)
-        {
-            _calculations = calculations;
-        }
+        //
     }
 }
