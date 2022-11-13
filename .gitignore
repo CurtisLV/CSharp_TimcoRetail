@@ -348,3 +348,15 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+/TRMDataManager/Scripts/jquery.validate.unobtrusive.min.js
+/TRMDataManager/Scripts/jquery.validate.unobtrusive.js
+/TRMDataManager/Scripts/jquery.validate.min.js
+/TRMDataManager/Scripts/jquery.validate.js
+/TRMDataManager/Scripts/jquery.validate-vsdoc.js
+/TRMDataManager/Scripts/jquery-3.6.1.slim.min.map
+/TRMDataManager/Scripts/jquery-3.6.1.slim.min.js
+/TRMDataManager/Scripts/jquery-3.6.1.slim.js
+/TRMDataManager/Scripts/jquery-3.6.1.min.map
+/TRMDataManager/Scripts/jquery-3.6.1.min.js
+/TRMDataManager/Scripts/jquery-3.6.1.js
+/TRMDataManager/Scripts/jquery-3.6.1.intellisense.js
