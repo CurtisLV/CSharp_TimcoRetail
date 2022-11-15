@@ -30,5 +30,21 @@ namespace TRMDesktopUI.ViewModels
                 NotifyOfPropertyChange(() => _password);
             }
         }
+
+        public bool CanLogIn(string userName, string password)
+        {
+            bool output = false;
+            // TODO - proper email & password check
+            if (userName.Length > 0 && password.Length > 0)
+            {
+                output = true;
+            }
+            return output;
+        }
+
+        public void LogIn(string userName, string password)
+        {
+            Console.WriteLine();
+        }
     }
 }
