@@ -9,7 +9,7 @@ namespace TRMDesktopUI.ViewModels
 {
     public class LoginViewModel : Screen
     {
-        private string _userName;
+        private string _userName = "";
         private string _password;
         public string UserName
         {
@@ -17,7 +17,8 @@ namespace TRMDesktopUI.ViewModels
             set
             {
                 _userName = value;
-                NotifyOfPropertyChange(() => _userName);
+                NotifyOfPropertyChange(() => UserName);
+                NotifyOfPropertyChange(() => CanLogIn);
             }
         }
 
@@ -27,19 +28,23 @@ namespace TRMDesktopUI.ViewModels
             set
             {
                 _password = value;
-                NotifyOfPropertyChange(() => _password);
+                NotifyOfPropertyChange(() => Password);
+                NotifyOfPropertyChange(() => CanLogIn);
             }
         }
 
-        public bool CanLogIn(string userName, string password)
+        public bool CanLogIn
         {
-            bool output = false;
-            // TODO - proper email & password check
-            if (userName.Length > 0 && password.Length > 0)
+            get
             {
-                output = true;
+                bool output = false;
+                // TODO - proper email & password check
+                if (UserName?.Length > 0 && Password?.Length > 0)
+                {
+                    output = true;
+                }
+                return output;
             }
-            return output;
         }
 
         public void LogIn(string userName, string password)
