@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace TRMDesktopUI.ViewModels
 {
-    internal class LoginViewModel
+    pulic class LoginViewModel
     {
+        //
     }
 }
