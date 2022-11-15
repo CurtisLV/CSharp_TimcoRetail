@@ -14,6 +14,7 @@ namespace TRMDesktopUI.ViewModels
         public ShellViewModel(LoginViewModel loginVM)
         {
             _loginVM = loginVM;
+            ActivateItemAsync(_loginVM);
         }
     }
 }
