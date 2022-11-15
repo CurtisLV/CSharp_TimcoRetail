@@ -9,6 +9,11 @@ namespace TRMDesktopUI.ViewModels
 {
     internal class ShellViewModel : Conductor<object>
     {
-        //
+        private LoginViewModel _loginVM;
+
+        public ShellViewModel(LoginViewModel loginVM)
+        {
+            _loginVM = loginVM;
+        }
     }
 }
