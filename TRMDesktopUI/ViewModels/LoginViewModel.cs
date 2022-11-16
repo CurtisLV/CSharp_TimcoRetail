@@ -55,9 +55,16 @@ namespace TRMDesktopUI.ViewModels
             }
         }
 
-        public void LogIn()
+        public async Task LogIn()
         {
-            //
+            try
+            {
+                var result = await _apiHelper.Authenticate(UserName, Password);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }
