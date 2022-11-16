@@ -21,9 +21,20 @@ namespace TRMDesktopUI.Helpers
         {
             ApiClient = new HttpClient();
             ApiClient.DefaultRequestHeaders.Accept.Clear();
-
             ApiClient.DefaultRequestHeaders.Accept.Add(
                 new MediaTypeWithQualityHeaderValue("application/json")
+            );
+        }
+
+        public void Authenticate(string username, string password)
+        {
+            var data = new FormUrlEncodedContent(
+                new[]
+                {
+                    new KeyValuePair<string, string>("grant_type", "password"),
+                    new KeyValuePair<string, string>("username", username),
+                    new KeyValuePair<string, string>("password", password)
+                }
             );
         }
     }
