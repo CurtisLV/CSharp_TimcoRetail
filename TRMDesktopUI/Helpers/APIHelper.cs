@@ -10,9 +10,9 @@ using TRMDesktopUI.Models;
 
 namespace TRMDesktopUI.Helpers
 {
-    public class APIHelper
+    public class APIHelper : IAPIHelper
     {
-        public HttpClient ApiClient { get; set; }
+        public HttpClient apiClient;
 
         public APIHelper()
         {
@@ -23,10 +23,10 @@ namespace TRMDesktopUI.Helpers
         {
             string api = ConfigurationManager.AppSettings["api"];
 
-            ApiClient = new HttpClient();
-            ApiClient.BaseAddress = new Uri(api);
-            ApiClient.DefaultRequestHeaders.Accept.Clear();
-            ApiClient.DefaultRequestHeaders.Accept.Add(
+            apiClient = new HttpClient();
+            apiClient.BaseAddress = new Uri(api);
+            apiClient.DefaultRequestHeaders.Accept.Clear();
+            apiClient.DefaultRequestHeaders.Accept.Add(
                 new MediaTypeWithQualityHeaderValue("application/json")
             );
         }
@@ -42,7 +42,7 @@ namespace TRMDesktopUI.Helpers
                 }
             );
 
-            using (HttpResponseMessage response = await ApiClient.PostAsync("/Token", data))
+            using (HttpResponseMessage response = await apiClient.PostAsync("/Token", data))
             {
                 if (response.IsSuccessStatusCode)
                 {
