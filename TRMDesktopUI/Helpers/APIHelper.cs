@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using TRMDesktopUI.Models;
 
 namespace TRMDesktopUI.Helpers
 {
@@ -30,7 +31,7 @@ namespace TRMDesktopUI.Helpers
             );
         }
 
-        public async Task Authenticate(string username, string password)
+        public async Task<AuthenticatedUser> Authenticate(string username, string password)
         {
             var data = new FormUrlEncodedContent(
                 new[]
@@ -45,7 +46,12 @@ namespace TRMDesktopUI.Helpers
             {
                 if (response.IsSuccessStatusCode)
                 {
-                    var result = await response.Content.ReadAsAsync<string>();
+                    var result = await response.Content.ReadAsAsync<AuthenticatedUser>();
+                    return result;
+                }
+                else
+                {
+                    throw new Exception(response.ReasonPhrase);
                 }
             }
         }
