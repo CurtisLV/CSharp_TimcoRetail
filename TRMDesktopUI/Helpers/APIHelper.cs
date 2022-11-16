@@ -20,13 +20,14 @@ namespace TRMDesktopUI.Helpers
         private void InitializeClient()
         {
             ApiClient = new HttpClient();
+            ApiClient.BaseAddress = new Uri("/");
             ApiClient.DefaultRequestHeaders.Accept.Clear();
             ApiClient.DefaultRequestHeaders.Accept.Add(
                 new MediaTypeWithQualityHeaderValue("application/json")
             );
         }
 
-        public void Authenticate(string username, string password)
+        public async Task Authenticate(string username, string password)
         {
             var data = new FormUrlEncodedContent(
                 new[]
@@ -36,6 +37,11 @@ namespace TRMDesktopUI.Helpers
                     new KeyValuePair<string, string>("password", password)
                 }
             );
+
+            using (HttpResponseMessage response = await ApiClient.PostAsync("/Token", data))
+            {
+                //
+            }
         }
     }
 }
