@@ -41,6 +41,18 @@ namespace TRMDesktopUI.ViewModels
             }
         }
 
+        private bool _isErrorVisible;
+
+        public bool IsErrorVisible
+        {
+            get { return _isErrorVisible; }
+            set
+            {
+                NotifyOfPropertyChange(() => IsErrorVisible);
+                _isErrorVisible = value;
+            }
+        }
+
         public bool CanLogIn
         {
             get
