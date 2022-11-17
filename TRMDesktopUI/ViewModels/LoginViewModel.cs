@@ -46,7 +46,7 @@ namespace TRMDesktopUI.ViewModels
             get
             {
                 bool output = false;
-                if (ErrorMessage.Length > 0)
+                if (ErrorMessage?.Length > 0)
                 {
                     output = true;
                 }
@@ -89,7 +89,7 @@ namespace TRMDesktopUI.ViewModels
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex.Message);
+                ErrorMessage = ex.Message;
             }
         }
     }
