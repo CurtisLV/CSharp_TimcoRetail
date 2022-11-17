@@ -41,18 +41,7 @@ namespace TRMDesktopUI.ViewModels
             }
         }
 
-        public bool IsErrorVisible
-        {
-            get
-            {
-                bool output = false;
-                if (ErrorMessage?.Length > 0)
-                {
-                    output = true;
-                }
-                return output;
-            }
-        }
+        public bool IsErrorVisible => !String.IsNullOrEmpty(ErrorMessage);
 
         private string _errorMessage;
 
@@ -61,9 +50,9 @@ namespace TRMDesktopUI.ViewModels
             get { return _errorMessage; }
             set
             {
-                NotifyOfPropertyChange(() => IsErrorVisible);
-                NotifyOfPropertyChange(() => ErrorMessage);
                 _errorMessage = value;
+                NotifyOfPropertyChange(() => ErrorMessage);
+                NotifyOfPropertyChange(() => IsErrorVisible);
             }
         }
 
