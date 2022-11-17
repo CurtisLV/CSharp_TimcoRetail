@@ -41,15 +41,29 @@ namespace TRMDesktopUI.ViewModels
             }
         }
 
-        private bool _isErrorVisible;
-
         public bool IsErrorVisible
         {
-            get { return _isErrorVisible; }
+            get
+            {
+                bool output = false;
+                if (ErrorMessage.Length > 0)
+                {
+                    output = true;
+                }
+                return output;
+            }
+        }
+
+        private string _errorMessage;
+
+        public string ErrorMessage
+        {
+            get { return _errorMessage; }
             set
             {
                 NotifyOfPropertyChange(() => IsErrorVisible);
-                _isErrorVisible = value;
+                NotifyOfPropertyChange(() => ErrorMessage);
+                _errorMessage = value;
             }
         }
 
