@@ -43,6 +43,18 @@ namespace TRMDesktopUI.ViewModels
 
         public bool IsErrorVisible => !String.IsNullOrEmpty(ErrorMessage);
 
+        //{
+        //    get
+        //    {
+        //        bool output = false;
+        //        if (ErrorMessage?.Length > 0)
+        //        {
+        //            output = true;
+        //        }
+        //        return output;
+        //    }
+        //}
+
         private string _errorMessage;
 
         public string ErrorMessage
@@ -51,8 +63,8 @@ namespace TRMDesktopUI.ViewModels
             set
             {
                 _errorMessage = value;
-                NotifyOfPropertyChange(() => ErrorMessage);
                 NotifyOfPropertyChange(() => IsErrorVisible);
+                NotifyOfPropertyChange(() => ErrorMessage);
             }
         }
 
@@ -74,7 +86,7 @@ namespace TRMDesktopUI.ViewModels
         {
             try
             {
-                //ErrorMessage = "";
+                ErrorMessage = "";
                 var result = await _apiHelper.Authenticate(UserName, Password);
             }
             catch (Exception ex)
