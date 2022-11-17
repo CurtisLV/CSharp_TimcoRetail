@@ -85,7 +85,7 @@ namespace TRMDesktopUI.ViewModels
         {
             try
             {
-                ErrorMessage = "";
+                //ErrorMessage = "";
                 var result = await _apiHelper.Authenticate(UserName, Password);
             }
             catch (Exception ex)
