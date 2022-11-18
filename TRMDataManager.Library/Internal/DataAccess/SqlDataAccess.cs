@@ -8,9 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Dapper;
 
-namespace TRMDataManager.Library
+namespace TRMDataManager.Library.Internal.DataAccess
 {
-    public class SqlDataAccess
+    internal class SqlDataAccess
     {
         public string GetConnectionString(string name)
         {
