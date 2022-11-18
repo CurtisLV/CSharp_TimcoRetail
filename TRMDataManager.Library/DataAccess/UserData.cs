@@ -8,6 +8,11 @@ namespace TRMDataManager.Library.DataAccess
 {
     public class UserData
     {
-        //
+        // [spUserLookup]
+
+        public List<UserModel> GetUserById(string id)
+        {
+            //
+        }
     }
 }
