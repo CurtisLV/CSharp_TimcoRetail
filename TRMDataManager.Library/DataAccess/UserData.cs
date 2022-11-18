@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TRMDataManager.Library.Internal.DataAccess;
+using TRMDataManager.Library.Models;
 
 namespace TRMDataManager.Library.DataAccess
 {
@@ -12,7 +14,7 @@ namespace TRMDataManager.Library.DataAccess
 
         public List<UserModel> GetUserById(string id)
         {
-            //
+            SqlDataAccess sql = new SqlDataAccess();
         }
     }
 }
