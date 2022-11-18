@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using TRMDataManager.Library.Internal.DataAccess;
-using TRMDataManager.Library.Models;
+using TRMDataManager.Library.Internal.Models;
 
 namespace TRMDataManager.Library.DataAccess
 {
@@ -12,9 +8,13 @@ namespace TRMDataManager.Library.DataAccess
     {
         // [spUserLookup]
 
-        public List<UserModel> GetUserById(string id)
+        public List<UserModel> GetUserById(string Id)
         {
             SqlDataAccess sql = new SqlDataAccess();
+
+            var p = new { Id = Id };
+
+            sql.LoadData<UserModel, dynamic>("dbo.spUserLookup", p, "DefaultConnection");
         }
     }
 }
