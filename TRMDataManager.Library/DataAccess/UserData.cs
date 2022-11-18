@@ -14,7 +14,13 @@ namespace TRMDataManager.Library.DataAccess
 
             var p = new { Id = Id };
 
-            sql.LoadData<UserModel, dynamic>("dbo.spUserLookup", p, "DefaultConnection");
+            var output = sql.LoadData<UserModel, dynamic>(
+                "dbo.spUserLookup",
+                p,
+                "DefaultConnection"
+            );
+
+            return output;
         }
     }
 }
