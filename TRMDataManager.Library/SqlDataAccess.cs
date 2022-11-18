@@ -24,14 +24,28 @@ namespace TRMDataManager.Library
         )
         {
             string connectionString = GetConnectionString(connectionStringName);
+            // Load data method using Dapper
             using (IDbConnection connection = new SqlConnection(connectionString))
             {
-                //
                 List<T> rows = connection
                     .Query<T>(storedProcedure, parameters, commandType: CommandType.StoredProcedure)
                     .ToList();
 
                 return rows;
+            }
+        }
+
+        public void SaveData<T>(string storedProcedure, T parameters, string connectionStringName)
+        {
+            string connectionString = GetConnectionString(connectionStringName);
+            // Load data method using Dapper
+            using (IDbConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Execute(
+                    storedProcedure,
+                    parameters,
+                    commandType: CommandType.StoredProcedure
+                );
             }
         }
     }
