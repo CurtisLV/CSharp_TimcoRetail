@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Dapper;
 
 namespace TRMDataManager.Library
 {
@@ -26,6 +27,11 @@ namespace TRMDataManager.Library
             using (IDbConnection connection = new SqlConnection(connectionString))
             {
                 //
+                List<T> rows = connection
+                    .Query<T>(storedProcedure, parameters, commandType: CommandType.StoredProcedure)
+                    .ToList();
+
+                return rows;
             }
         }
     }
