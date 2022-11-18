@@ -43,18 +43,6 @@ namespace TRMDesktopUI.ViewModels
 
         public bool IsErrorVisible => !String.IsNullOrEmpty(ErrorMessage);
 
-        //{
-        //    get
-        //    {
-        //        bool output = false;
-        //        if (ErrorMessage?.Length > 0)
-        //        {
-        //            output = true;
-        //        }
-        //        return output;
-        //    }
-        //}
-
         private string _errorMessage;
 
         public string ErrorMessage

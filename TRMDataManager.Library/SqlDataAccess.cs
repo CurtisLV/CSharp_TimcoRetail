@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TRMDataManager.Library
 {
-    public class Class1
+    public class SqlDataAccess
     {
         //
     }
