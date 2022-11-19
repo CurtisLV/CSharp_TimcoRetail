@@ -10,12 +10,6 @@ namespace TRMDataManager.Controllers
     [RoutePrefix("api/User")]
     public class UserController : Controller
     {
-        // GET: User
-        public ActionResult Index()
-        {
-            return View();
-        }
-
         // GET: User/Details/5
         public ActionResult Details(int id)
         {
