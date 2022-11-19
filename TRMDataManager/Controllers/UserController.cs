@@ -13,11 +13,6 @@ namespace TRMDataManager.Controllers
     [RoutePrefix("api/User")]
     public class UserController : ApiController
     {
-        public string Get(int id)
-        {
-            return "value";
-        }
-
         // GET: User/Details/5
         public List<UserModel> GetById(string id)
         {
