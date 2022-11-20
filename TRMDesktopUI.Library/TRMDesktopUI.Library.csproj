@@ -50,18 +50,13 @@
   <ItemGroup>
     <Compile Include="Api\APIHelper.cs" />
     <Compile Include="Api\IAPIHelper.cs" />
+    <Compile Include="Models\AuthenticatedUser.cs" />
     <Compile Include="Models\LoggedInUserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\TRMDesktopUI\TRMDesktopUI.csproj">
-      <Project>{807A4951-DD20-451C-B9BB-50E7EFE9ECAC}</Project>
-      <Name>TRMDesktopUI</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
