@@ -68,7 +68,7 @@ namespace TRMDesktopUI.Helpers
             );
             apiClient.DefaultRequestHeaders.Add("Authorization", $"bearer {token}");
 
-            using (HttpResponseMessage response = await apiClient.GetAsync("/User"))
+            using (HttpResponseMessage response = await apiClient.GetAsync("/api/User"))
             {
                 if (response.IsSuccessStatusCode)
                 {
