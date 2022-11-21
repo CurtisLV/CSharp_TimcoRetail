@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using TRMDesktopUI.Library.Models;
 using TRMDesktopUI.Models;
 
 namespace TRMDesktopUI.Helpers
@@ -54,6 +55,15 @@ namespace TRMDesktopUI.Helpers
                     throw new Exception(response.ReasonPhrase);
                 }
             }
+        }
+
+        public async Task<LoggedInUserModel> GetLoggedInUserInfo(string token)
+        {
+            apiClient.DefaultRequestHeaders.Accept.Clear();
+            apiClient.DefaultRequestHeaders.Accept.Add(
+                new MediaTypeWithQualityHeaderValue("application/json")
+            );
+            apiClient.DefaultRequestHeaders.Add("Authorization", $"bearer {token}");
         }
     }
 }
