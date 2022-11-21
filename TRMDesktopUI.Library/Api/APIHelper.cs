@@ -57,7 +57,7 @@ namespace TRMDesktopUI.Helpers
             }
         }
 
-        public async Task<LoggedInUserModel> GetLoggedInUserInfo(string token)
+        public async Task GetLoggedInUserInfo(string token)
         {
             apiClient.DefaultRequestHeaders.Clear();
             apiClient.DefaultRequestHeaders.Accept.Clear();
@@ -66,9 +66,16 @@ namespace TRMDesktopUI.Helpers
             );
             apiClient.DefaultRequestHeaders.Add("Authorization", $"bearer {token}");
 
-            using (HttpResponseMessage response = await apiClient.GetAsync("/Token", data))
+            using (HttpResponseMessage response = await apiClient.GetAsync("/User"))
             {
-                //
+                if (response.IsSuccessStatusCode)
+                {
+                    var result = await response.Content.ReadAsAsync<LoggedInUserModel>();
+                }
+                else
+                {
+                    throw new Exception(response?.ReasonPhrase);
+                }
             }
         }
     }
