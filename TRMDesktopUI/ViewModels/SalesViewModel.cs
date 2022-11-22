@@ -14,8 +14,24 @@ namespace TRMDesktopUI.ViewModels
 
         public BindingList<string> Products
         {
-            get { return Products; }
-            set { Products = value; }
+            get { return _products; }
+            set
+            {
+                _products = value;
+                NotifyOfPropertyChange(() => Products);
+            }
+        }
+
+        private string _itemQuantity;
+
+        public string ItemQuantity
+        {
+            get { return _itemQuantity; }
+            set
+            {
+                _itemQuantity = value;
+                NotifyOfPropertyChange(() => ItemQuantity);
+            }
         }
     }
 }
