@@ -51,5 +51,22 @@ namespace TRMDesktopUI.ViewModels
         {
             //
         }
+
+        public bool CanRemoveFromCart
+        {
+            get
+            {
+                bool output = false;
+
+                // Make sure something is selected
+
+                return output;
+            }
+        }
+
+        public void RemoveFromCart()
+        {
+            //
+        }
     }
 }
