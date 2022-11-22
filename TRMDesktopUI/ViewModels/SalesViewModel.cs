@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,12 @@ namespace TRMDesktopUI.ViewModels
 {
     public class SalesViewModel : Screen
     {
-        //
+        private BindingList<string> _products;
+
+        public BindingList<string> Products
+        {
+            get { return Products; }
+            set { Products = value; }
+        }
     }
 }
