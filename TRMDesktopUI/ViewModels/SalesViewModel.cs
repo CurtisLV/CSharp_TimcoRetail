@@ -31,6 +31,44 @@ namespace TRMDesktopUI.ViewModels
             {
                 _itemQuantity = value;
                 NotifyOfPropertyChange(() => ItemQuantity);
+                // TODO - ItemQuantity or Products???
+            }
+        }
+
+        public string SubTotal
+        {
+            get
+            {
+                // TODO - replace with calculation
+                return "$0.00";
+            }
+        }
+        public string Tax
+        {
+            get
+            {
+                // TODO - replace with calculation
+                return "$0.00";
+            }
+        }
+        public string Total
+        {
+            get
+            {
+                // TODO - replace with calculation
+                return "$0.00";
+            }
+        }
+
+        private BindingList<string> _cart;
+
+        public BindingList<string> Cart
+        {
+            get { return _cart; }
+            set
+            {
+                _cart = value;
+                NotifyOfPropertyChange(() => Cart);
             }
         }
 
