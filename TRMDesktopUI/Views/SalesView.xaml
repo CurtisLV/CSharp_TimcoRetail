@@ -25,17 +25,32 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <!-- Col 0 -->
-        <ListBox x:Name="Products" Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" MinHeight="150" MinWidth="100"/>
+        <TextBlock Text="Items" Grid.Row="0" Grid.Column="0"/>
+        <ListBox x:Name="Products" Grid.Row="1" Grid.Column="0" MinHeight="150" MinWidth="100"/>
 
         <!-- Col 1 -->
-        <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="0">
+        <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="1" Margin="20 0">
             <TextBlock Text="Quantity" />
-            <TextBox x:Name="ItemQuantity" MinWidth="100" />
-            <Button x:Name="AddToCart" Content="Add To Cart"/>
-            <Button x:Name="RemoveFromCart" Content="Remove From Cart" />
+            <TextBox x:Name="ItemQuantity" MinWidth="100" Margin="0 0 0 10"/>
+            <Button x:Name="AddToCart" Content="Add To Cart" Margin="0 0 0 30" Padding="5"/>
+            <Button x:Name="RemoveFromCart" Content="Remove From Cart" Padding="5"/>
         </StackPanel>
 
         <!-- Col 2 -->
-        <ListBox x:Name="Cart" Grid.Row="0" Grid.Column="2" Grid.RowSpan="3" MinHeight="150" MinWidth="100"/>
+        <TextBlock Text="Cart" Grid.Row="0" Grid.Column="2"/>
+        <ListBox x:Name="Cart" Grid.Row="1" Grid.Column="2" Grid.RowSpan="3" MinHeight="150" MinWidth="100"/>
+        <DockPanel Grid.Row="2" Grid.Column="2" >
+            <TextBlock Text="SubTotal: "  Grid.Row="2" Grid.Column="2" TextAlignment="Right"/>
+            <TextBlock x:Name="SubTotal" Text="$0.00"  Grid.Row="2" Grid.Column="2" TextAlignment="Right"/>
+        </DockPanel>        
+        <DockPanel Grid.Row="3" Grid.Column="2" >
+            <TextBlock Text="Tax: "  Grid.Row="2" Grid.Column="2" TextAlignment="Right"/>
+            <TextBlock x:Name="Tax" Text="$0.00"  Grid.Row="2" Grid.Column="2" TextAlignment="Right"/>
+        </DockPanel>        
+        <DockPanel Grid.Row="4" Grid.Column="2" >
+            <TextBlock Text="Total: "  Grid.Row="2" Grid.Column="2" TextAlignment="Right"/>
+            <TextBlock x:Name="Total" Text="$0.00"  Grid.Row="2" Grid.Column="2" TextAlignment="Right"/>
+        </DockPanel>
+
     </Grid>
 </UserControl>
