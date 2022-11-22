@@ -106,5 +106,22 @@ namespace TRMDesktopUI.ViewModels
         {
             //
         }
+
+        public bool CanCheckOut
+        {
+            get
+            {
+                bool output = false;
+
+                // Make sure there is something in the cart
+
+                return output;
+            }
+        }
+
+        public void CheckOut()
+        {
+            //
+        }
     }
 }
