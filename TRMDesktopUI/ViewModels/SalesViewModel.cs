@@ -33,5 +33,23 @@ namespace TRMDesktopUI.ViewModels
                 NotifyOfPropertyChange(() => ItemQuantity);
             }
         }
+
+        public bool CanAddToCart
+        {
+            get
+            {
+                bool output = false;
+
+                // Make sure something is selected
+                // Make sure there is a quantity on selected
+
+                return output;
+            }
+        }
+
+        public void AddToCart()
+        {
+            //
+        }
     }
 }
