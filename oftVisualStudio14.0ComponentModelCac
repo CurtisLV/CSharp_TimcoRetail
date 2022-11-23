@@ -1,0 +1,941 @@
+[33mcommit d3633ca126332ac401fcd59b3e15bb836f7599cb[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Wed Nov 23 20:25:45 2022 +0200
+
+    Event aggregation for WPF 4
+
+[33mcommit 682008aac5310cb7058159ec7220ef76569581da[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Wed Nov 23 20:11:28 2022 +0200
+
+    Event aggregation for WPF 3
+
+[33mcommit f23c21633e8ffe1289fea5592b9a3030df76e51a[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Wed Nov 23 20:07:57 2022 +0200
+
+    Event aggregation for WPF 2
+
+[33mcommit e9a596aa647f20e5503cf56797041f916d1c0934[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Wed Nov 23 19:58:36 2022 +0200
+
+    Event aggregation for WPF 1
+
+[33mcommit ec554450267fab2edb7112cee0999cfc0ed92090[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Wed Nov 23 19:58:25 2022 +0200
+
+    Event aggregation for WPF 1
+
+[33mcommit 7a3e739bbd46f3ae6b6b57cfe0ac3767696e5c90[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Tue Nov 22 21:17:19 2022 +0200
+
+    Sales view 12
+
+[33mcommit 707c53a0d043fa6bdcc862d138e98d5000928263[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Tue Nov 22 21:15:59 2022 +0200
+
+    Sales view 11
+
+[33mcommit 0c18f64160590418f466bb66baf74af9e34e6ec8[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Tue Nov 22 21:09:19 2022 +0200
+
+    Sales view 10
+
+[33mcommit 697d90951aee550ae53305d00ebf26801258f513[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Tue Nov 22 21:08:08 2022 +0200
+
+    Sales view 9
+
+[33mcommit c50411abe7e3706de640a5c1c41f8dde035af249[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Tue Nov 22 21:04:41 2022 +0200
+
+    Sales view 8
+
+[33mcommit cdc5e977978f8e6c70f26e658dfa55284c6f78b3[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Tue Nov 22 21:01:55 2022 +0200
+
+    Sales view 7
+
+[33mcommit 519d2e6fc19cdc4bc926ed4cb1f264c25308d538[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Tue Nov 22 20:59:39 2022 +0200
+
+    Sales view 6
+
+[33mcommit 8c47e9375bb74eebd6e39c9ed88a8cd014246a37[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Tue Nov 22 20:55:01 2022 +0200
+
+    Sales view 5
+
+[33mcommit b27747463da6d14f90f1ea5efafa596988577ea8[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Tue Nov 22 20:51:28 2022 +0200
+
+    Sales view 4
+
+[33mcommit 66b123b0536084a72f4fa24d307302359397c669[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Tue Nov 22 20:39:17 2022 +0200
+
+    Sales view 3
+
+[33mcommit 5e0b80195643c14d0e0972de5f8d99a35f5efe99[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Tue Nov 22 20:27:37 2022 +0200
+
+    Sales view 2
+
+[33mcommit fad1e0ce8a1190e61f58109402f82863d7e247cb[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Tue Nov 22 19:43:00 2022 +0200
+
+    Sales view 1
+
+[33mcommit 3ca01e4149384b34b72b3cc343c0e3c69bb65efc[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Mon Nov 21 20:05:57 2022 +0200
+
+    TRMDesktopUI.Library 14
+
+[33mcommit ff67f72307e5764a5841bd2223f932f80dafe12e[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Mon Nov 21 19:56:30 2022 +0200
+
+    TRMDesktopUI.Library 13
+
+[33mcommit 14793f85ff0e515a58cfb502855c6b8bccae91e5[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Mon Nov 21 19:54:00 2022 +0200
+
+    TRMDesktopUI.Library 12
+
+[33mcommit 6cb18fd6fbb4a5ee32cc47167a78063a86ea0b13[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Mon Nov 21 19:52:18 2022 +0200
+
+    TRMDesktopUI.Library 11
+
+[33mcommit a7400f8e311807620d5d2eb8600ae509fc4fadda[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Mon Nov 21 19:52:00 2022 +0200
+
+    TRMDesktopUI.Library 10
+
+[33mcommit 4d60de544056cdc2396e63e98cd1eb31823dd548[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Mon Nov 21 19:47:54 2022 +0200
+
+    TRMDesktopUI.Library 9
+
+[33mcommit ab979c36324346fc71dc349e749519ee443e9534[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Mon Nov 21 19:45:20 2022 +0200
+
+    TRMDesktopUI.Library 8
+
+[33mcommit 301e56a172f8a172777c7cf65df85dd2cfa25f49[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Mon Nov 21 19:41:39 2022 +0200
+
+    TRMDesktopUI.Library 7
+
+[33mcommit feab4a4234842b3956d1d01a122781a79ba7e89e[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Sun Nov 20 21:25:42 2022 +0200
+
+    TRMDesktopUI.Library 6
+
+[33mcommit eb1f03adcb98eec6f386c392291b3d720abaca9f[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Sun Nov 20 21:23:03 2022 +0200
+
+    TRMDesktopUI.Library 5
+
+[33mcommit 86b8ff5fb3919c4b65b0a56046fc8ca241e421c5[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Sun Nov 20 21:22:50 2022 +0200
+
+    TRMDesktopUI.Library 4
+
+[33mcommit f10b6431420a3645d2253566d65d1b99c54dabea[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Sun Nov 20 21:16:08 2022 +0200
+
+    TRMDesktopUI.Library 3
+
+[33mcommit ef8d3563d647f5f13d88c1f4ecb46f4ad553e1d0[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Sun Nov 20 21:16:02 2022 +0200
+
+    TRMDesktopUI.Library 2
+
+[33mcommit 674c3eb29f6e68ecf4d7f43ca88b4c0fe9ac1b99[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Sun Nov 20 21:02:40 2022 +0200
+
+    LoggedInUserModel
+
+[33mcommit 18bb3c8859af0b4ec8e13f14fd25471f86a69661[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Sun Nov 20 21:00:17 2022 +0200
+
+    TRMDesktopUI.Library 1
+
+[33mcommit 43223188ed341f673a3b36d79592142bafe3e47d[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Sun Nov 20 20:50:47 2022 +0200
+
+    UserController 11
+
+[33mcommit 2d1c944436b3ea424c6ed32d8c6b72959c9af5e0[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Sun Nov 20 19:43:21 2022 +0200
+
+    UserController 10
+
+[33mcommit 2814c588a03ec5b4f930da84314ebf764c29001b[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Sun Nov 20 19:36:28 2022 +0200
+
+    UserController 9
+
+[33mcommit 93ffa1cc3d604d3ef4ed66607316b673bbd1f13b[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Sun Nov 20 19:30:38 2022 +0200
+
+    UserController 8
+
+[33mcommit 8ae8171e8f4e48774cddc021b108daacce5bcfd5[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Sat Nov 19 11:10:19 2022 +0200
+
+    UserController 7
+
+[33mcommit 2f2ca90529f854a9be88465b9e50936c9bfced4e[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Sat Nov 19 10:56:18 2022 +0200
+
+    UserController 6
+
+[33mcommit 2510bb5344fb90063af46070e54358e8a96e08ed[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Sat Nov 19 10:39:37 2022 +0200
+
+    UserController 5
+
+[33mcommit 360bdc3b1bdbeed91accfc8e76186eb574c646cd[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Sat Nov 19 10:39:17 2022 +0200
+
+    UserController 4
+
+[33mcommit e0a2ea7f1dd898dad4d9ba20adaaba72b5bc56ba[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Sat Nov 19 10:34:26 2022 +0200
+
+    UserController 3
+
+[33mcommit 524f4d61ff31bbe5d9c701279808845a4c611d34[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Sat Nov 19 10:34:08 2022 +0200
+
+    UserController 2
+
+[33mcommit 9f6beb836444bf18273ee6ab01be6f86dc5a86c8[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Sat Nov 19 10:33:38 2022 +0200
+
+    UserController 1
+
+[33mcommit 188a349a1eac4b6584235e76d513614210167cbe[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Fri Nov 18 19:28:42 2022 +0200
+
+    SqlDataAccess 10
+
+[33mcommit ef98ce39039fa9d5fb54918332b1d472bbda8db2[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Fri Nov 18 19:26:58 2022 +0200
+
+    SqlDataAccess 9
+
+[33mcommit f6bb0113e798f9cda6fdd031ad3b70730459adf1[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Fri Nov 18 19:13:33 2022 +0200
+
+    SqlDataAccess 8
+
+[33mcommit 4302baa24203628ca53a86bd35193491f37ba09c[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Fri Nov 18 19:08:36 2022 +0200
+
+    SqlDataAccess 7
+
+[33mcommit ac572b380e153d30b49fd32ef0a7df178c2b8f69[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Fri Nov 18 19:06:08 2022 +0200
+
+    [spUserLookup]
+
+[33mcommit 778a267e02c5a8d20dfc1671e26cd5b924076bab[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Fri Nov 18 19:00:40 2022 +0200
+
+    SqlDataAccess 6
+
+[33mcommit 6b8422ccbc77973c12061541e405150b24e6a744[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Fri Nov 18 12:34:08 2022 +0200
+
+    SqlDataAccess 5
+
+[33mcommit c0ee42200fd4475d0015396ba0be5f78c4d3adab[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Fri Nov 18 12:10:24 2022 +0200
+
+    SqlDataAccess 4
+
+[33mcommit 440b1ef537fdba6f49dae1c098d2220972ed3c8e[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Fri Nov 18 12:06:13 2022 +0200
+
+    SqlDataAccess 3
+
+[33mcommit c44d160bf1959facdc45836c5a5091a69da355ed[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Fri Nov 18 11:59:48 2022 +0200
+
+    SqlDataAccess 2
+
+[33mcommit 941333bf8f3cbda7f8c8f1b922fd9a8f4649b9ac[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Fri Nov 18 11:56:50 2022 +0200
+
+    SqlDataAccess 1
+
+[33mcommit 3704d2ec42fffff773fecead05722bb9fb47e6ce[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Fri Nov 18 11:55:11 2022 +0200
+
+    new project
+
+[33mcommit d62ff8beb815c0efc4d6175eb43027135524f910[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Thu Nov 17 13:53:36 2022 +0200
+
+    Login error 7
+
+[33mcommit 161fc827f9df59b2d9d587d9988090e054931c89[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Thu Nov 17 13:44:31 2022 +0200
+
+    Login error 6
+
+[33mcommit 23af0e2cb7d754f728ae77437b57054f3eea512c[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Thu Nov 17 13:38:35 2022 +0200
+
+    Login error 5
+
+[33mcommit 306caf8ffc049f0d279aecf2030e9e629773f27b[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Thu Nov 17 13:28:46 2022 +0200
+
+    Login error 4
+
+[33mcommit 1b4d3abad21948a36a32f92b68628918d5117dc3[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Thu Nov 17 13:20:43 2022 +0200
+
+    Login error 3
+
+[33mcommit 0a2893db6262bc55a22efd90b74d83a1f14b9797[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Thu Nov 17 13:18:37 2022 +0200
+
+    Login error 2
+
+[33mcommit 0496cb8acf831a3c92cc20738e95668335ad6a14[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Thu Nov 17 13:15:44 2022 +0200
+
+    Login error 1
+
+[33mcommit 0cf347c910450979942878078bcfc00b4b915219[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Wed Nov 16 22:21:38 2022 +0200
+
+    APIHelper 11
+
+[33mcommit 71686ba49215afc5e36952341c782778633af197[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Wed Nov 16 22:07:48 2022 +0200
+
+    APIHelper 10
+
+[33mcommit c70717e5820d41395825c2a4a66c96e5036f1db1[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Wed Nov 16 22:05:27 2022 +0200
+
+    APIHelper 9
+
+[33mcommit 898f8f5b15ee36e790db06e08a052e68a244e2a3[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Wed Nov 16 22:03:15 2022 +0200
+
+    APIHelper 7
+
+[33mcommit 332c9a875217060b850ba88dcdae48d66f27685f[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Wed Nov 16 22:00:30 2022 +0200
+
+    APIHelper 8
+
+[33mcommit 6f39c2105cb44a19d8e1c1f7c760c20873ab62dc[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Wed Nov 16 21:55:29 2022 +0200
+
+    AuthenticatedUser 1
+
+[33mcommit 36c1633c3c1c7cdd54d3d4bd4e5d288cc85d183a[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Wed Nov 16 21:55:10 2022 +0200
+
+    APIHelper 7
+
+[33mcommit bf409f0d76d0308b7e0fefee091dfb4153ec6bd6[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Wed Nov 16 21:40:24 2022 +0200
+
+    APIHelper 6
+
+[33mcommit e3680ccf0ec1c069022ee1c75baed0d6140627d1[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Wed Nov 16 21:33:37 2022 +0200
+
+    APIHelper 5
+
+[33mcommit 172d1fe29ea1d2240fd4e488aa235e7c920a7784[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Wed Nov 16 21:24:23 2022 +0200
+
+    APIHelper 4
+
+[33mcommit ee1bb68ac4cc2fc1b7b4bd1b9dd9ad76bb7973b2[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Wed Nov 16 21:20:55 2022 +0200
+
+    APIHelper 3
+
+[33mcommit 7449a7ddeafe712bd6df9892eb65fefc2f57b6a0[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Wed Nov 16 21:19:03 2022 +0200
+
+    APIHelper 2
+
+[33mcommit e09d7b959d2c655a2555514ef76646df5aad2be5[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Wed Nov 16 21:17:31 2022 +0200
+
+    APIHelper 1
+
+[33mcommit adbbea575b9fab3c493a2bf0d0837b191d9edbfe[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Wed Nov 16 21:17:16 2022 +0200
+
+    21:17
+
+[33mcommit 04939347c8f60a4843292109d0c74f9dd6b35f99[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Tue Nov 15 20:48:15 2022 +0200
+
+    LoginView 5
+
+[33mcommit 35c64b69304f0b12bca9d744a8ba4dcb449a1901[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Tue Nov 15 20:23:52 2022 +0200
+
+    LoginView 4
+
+[33mcommit ebc2881c5917668a8c52b7d79682fa9179c9038c[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Tue Nov 15 20:23:45 2022 +0200
+
+    LoginView 3
+
+[33mcommit 50fa524aad952d2894381672e486c373a9e1ec3c[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Tue Nov 15 20:23:39 2022 +0200
+
+    LoginView 2
+
+[33mcommit 9a60e3f6c82faca3cf49a6ee537ddfefe4b64975[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Tue Nov 15 20:15:30 2022 +0200
+
+    LoginView 1
+    
+    Also reverting Caliburn to v3.2, as migration to asyn comes later
+
+[33mcommit fa74edbe35ef1a65aad127aca7887051f8d3b18e[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Tue Nov 15 20:04:01 2022 +0200
+
+    LoginView 1
+
+[33mcommit 88b806e9d5aeb43855119ab436a7e8e34382cf8e[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Tue Nov 15 11:21:48 2022 +0200
+
+    LoginViewModel 8
+
+[33mcommit 8de3bc052d0d31ad77a77f807c31b6b5eb2e1836[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Tue Nov 15 11:17:26 2022 +0200
+
+    LoginViewModel 7
+
+[33mcommit 1b7985779d882f6a7965e56ee6535ff3f7704461[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Tue Nov 15 11:15:49 2022 +0200
+
+    LoginViewModel 6
+
+[33mcommit 1464506ed2fbdc17564b1e0e03420f698cdc9184[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Tue Nov 15 11:14:55 2022 +0200
+
+    LoginViewModel 5
+
+[33mcommit 64e6e6fc719785e378a2e5dd1c405b78e4c52177[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Tue Nov 15 11:12:25 2022 +0200
+
+    LoginViewModel 4
+
+[33mcommit 88fbbcdfecabae9bbef613add8b1cc1e6aca6435[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Tue Nov 15 11:06:19 2022 +0200
+
+    LoginViewModel 3
+
+[33mcommit 24caee1021dfce5f59cc5764101f4317bc358192[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Tue Nov 15 11:00:06 2022 +0200
+
+    LoginViewModel 2
+
+[33mcommit dca2f23704d940a089ae6cda3b280ae2b310dc47[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Tue Nov 15 10:59:20 2022 +0200
+
+    LoginViewModel 1
+
+[33mcommit e959f220ca713553d165dccacbc9ace6b1ed9c37[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Tue Nov 15 10:59:06 2022 +0200
+
+    Building ShellView 2
+
+[33mcommit 7640223bb70768b034d02318db76ee22683a3d83[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Tue Nov 15 10:56:47 2022 +0200
+
+    Building ShellView 1
+
+[33mcommit 089d179ac348d1dbff34413655b749fdfd3840ad[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Tue Nov 15 10:50:52 2022 +0200
+
+    adding Caliburn.Micro
+
+[33mcommit 05e6dfb2a2351dc39aecb86d6d73bcd6c2822100[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Mon Nov 14 21:35:23 2022 +0200
+
+    Tables for the basic register system
+
+[33mcommit 940c4860266494d5248400b0783579e6d40e2ecc[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Mon Nov 14 21:31:55 2022 +0200
+
+    Product table 3
+
+[33mcommit c69e7e276b186a4407ba98d68f5e57450ae0d59a[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Mon Nov 14 21:30:59 2022 +0200
+
+    Inventory table 2
+
+[33mcommit 3c20e40ed21fa5c95a7e99f7c3212d5737aac5f3[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Mon Nov 14 21:28:55 2022 +0200
+
+    Inventory table 1
+
+[33mcommit 9f3ec0bb526ffefa883e2e8874644746966b5426[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Mon Nov 14 21:23:48 2022 +0200
+
+    Product table 2
+
+[33mcommit 2be683e6f25adedcf5cc1561481620ff7812c9ef[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Mon Nov 14 21:22:05 2022 +0200
+
+    Product table 1
+
+[33mcommit 0cfb45735690950cbdf6adf3395e1ec0c3fab7c4[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Mon Nov 14 21:18:24 2022 +0200
+
+    Sale table 3
+
+[33mcommit e6e1cd409a309930f3d83bc79610ef4b292cdd8d[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Mon Nov 14 21:15:39 2022 +0200
+
+    SaleDetail 1
+
+[33mcommit 1c43beb3277c1e1a28c85512fa9ccb291f05e6f3[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Mon Nov 14 21:07:12 2022 +0200
+
+    Sale table 2
+
+[33mcommit 78162f2bb277190a221538e4135fbc4f157be0fd[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Mon Nov 14 20:57:15 2022 +0200
+
+    Sale table 1
+
+[33mcommit 667604ae64ab68af002a079ffd7eeeaf8d467b50[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Mon Nov 14 20:54:46 2022 +0200
+
+    Adding first table 2
+
+[33mcommit 9884739d3615a94686223f7997ad4a559ca097e3[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Mon Nov 14 20:49:46 2022 +0200
+
+    Adding first table 1
+
+[33mcommit b44e96ea14359076bb9152259729837751a19dc6[m
+Merge: 69fd033 80dc94a
+Author: CurtisLV <28841061+CurtisLV@users.noreply.github.com>
+Date:   Sun Nov 13 12:40:40 2022 +0200
+
+    Merge pull request #1 from CurtisLV/CurtisLV-patch-1
+    
+    Delete ICalculations.cs
+
+[33mcommit 69fd033248909b2835d1e2c63391639f51eef3ee[m
+Merge: 9b50648 4f31ad4
+Author: CurtisLV <28841061+CurtisLV@users.noreply.github.com>
+Date:   Sun Nov 13 12:40:27 2022 +0200
+
+    Merge pull request #2 from CurtisLV/CurtisLV-patch-2
+    
+    Delete Calculations.cs
+
+[33mcommit 4f31ad477c8da4f0c39516e83d8d5ad77b599f38[m
+Author: CurtisLV <28841061+CurtisLV@users.noreply.github.com>
+Date:   Sun Nov 13 12:40:16 2022 +0200
+
+    Delete Calculations.cs
+
+[33mcommit 80dc94ad697165daeb58a347495aa49fca2e7b6b[m
+Author: CurtisLV <28841061+CurtisLV@users.noreply.github.com>
+Date:   Sun Nov 13 12:39:35 2022 +0200
+
+    Delete ICalculations.cs
+
+[33mcommit 9b506483990b4cf8201e24b30a89a58af6792f83[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Sun Nov 13 12:37:43 2022 +0200
+
+    Untrack jquery
+
+[33mcommit ecc571de14d615f4c593495ac6d583a5a223746c[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Sun Nov 13 12:36:36 2022 +0200
+
+    Reset
+
+[33mcommit 3e4e979db2c8984d8767003fb4a22b142c24ec61[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Sun Nov 13 12:29:26 2022 +0200
+
+    Calculations class 4
+
+[33mcommit 9565e0491f6a03e639b28860ae25a311cc23175c[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Sun Nov 13 12:28:41 2022 +0200
+
+    Calculations class 3
+
+[33mcommit b00ae26948bcae221364ff4c896c593fc3b45072[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Sun Nov 13 12:26:36 2022 +0200
+
+    Calculations class 2
+
+[33mcommit fa4599ff5be6dcad9059910d6083e6e72da93b54[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Sun Nov 13 12:26:29 2022 +0200
+
+    Calculations class 2
+
+[33mcommit 471d6e7546f6c05c74998c151b733a5847c53205[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Sun Nov 13 12:25:53 2022 +0200
+
+    Calculations class 1
+
+[33mcommit 88829c5672178a27b52f994e47c6342b56ce280d[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Thu Nov 10 22:19:49 2022 +0200
+
+    Dependency injection in WPF 8
+
+[33mcommit 5046fd3de11238e0f5d7a3b7a16ad9429d3c2cef[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Thu Nov 10 22:18:34 2022 +0200
+
+    Dependency injection in WPF 7
+
+[33mcommit 3319e91db22040da89d2594a5411bbadfe915c33[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Thu Nov 10 22:16:54 2022 +0200
+
+    Dependency injection in WPF 6
+
+[33mcommit a2a8b3eea2c7fb9788166d6dacd3f6bfe20c421e[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Thu Nov 10 22:07:57 2022 +0200
+
+    Dependency injection in WPF 5
+
+[33mcommit 0ae06869cd794b8f8467559a25bf7b439234db1d[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Thu Nov 10 21:54:54 2022 +0200
+
+    Dependency injection in WPF 4
+
+[33mcommit 55276c9814c4550f5dffeb1a0fe3e7fe84b1b67c[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Thu Nov 10 21:51:25 2022 +0200
+
+    Dependency injection in WPF 3
+
+[33mcommit cd25d53480f201ff4b722a64971a651877ead38a[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Thu Nov 10 21:47:22 2022 +0200
+
+    Dependency injection in WPF 2
+
+[33mcommit 097c64481f37de5f233199dbcca8226d23828714[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Thu Nov 10 21:46:52 2022 +0200
+
+    Dependency injection in WPF 1
+
+[33mcommit 855aa6c5f581d9e7651ba2b456eb2a4b8a4ff829[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Thu Nov 10 21:44:49 2022 +0200
+
+    Dependency injection in WPF 1
+
+[33mcommit 4616f0bf62f12e99d2429b2104bc5e1a9b03aaed[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Wed Nov 9 15:43:21 2022 +0200
+
+    Bootstrapper class 3
+
+[33mcommit 13f340da369095b0885fa3e1bd9c02d60bf0628c[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Wed Nov 9 15:41:41 2022 +0200
+
+    Bootstrapper class 2
+
+[33mcommit 57369c4a7aaf382159c1b5a2f805bd97429c957d[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Wed Nov 9 15:37:49 2022 +0200
+
+    Bootstrapper class
+
+[33mcommit 873ca13f36914b871f0b14e8866860112119c4fd[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Wed Nov 9 15:34:01 2022 +0200
+
+    Basic view
+
+[33mcommit 22371743423c1db7ef95351b17b819be23106e18[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Wed Nov 9 14:54:38 2022 +0200
+
+    Add WPF UI project
+
+[33mcommit f5e3ef632bded1f0db3987334bbc0ba6445192a3[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Wed Nov 9 14:52:55 2022 +0200
+
+    Add WPF UI project
+
+[33mcommit 84b4c1a9b9ae892299383c3f843871907974ea5f[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Wed Nov 9 14:51:57 2022 +0200
+
+    Remove incorrect UI project
+
+[33mcommit 2b898d87ec0fee6b511f83798535dc6ae5fb4f24[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Wed Nov 9 14:48:40 2022 +0200
+
+    Add UI project
+
+[33mcommit daa9f2e911c94826d64c76701113d56f6a1d439d[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Wed Nov 9 14:48:09 2022 +0200
+
+    Add UI project
+
+[33mcommit 2c20a9237b9f0ab3cd030eb5f016ca7bc25bd4e2[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Wed Nov 9 14:25:58 2022 +0200
+
+    SQL project
+
+[33mcommit a8e14230e5b22ac7920aa12bb5de27f4264063ff[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Wed Nov 9 14:23:16 2022 +0200
+
+    SQL server
+
+[33mcommit 2f46210d30fc3dcd107ab876cbc24f176cc3ce5e[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Wed Nov 9 14:11:44 2022 +0200
+
+    Adding SQL project
+
+[33mcommit aa33f7bc0ba7d544fdac38e363acb33a65bf1361[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Tue Nov 8 12:43:27 2022 +0200
+
+    Swagger config 4
+
+[33mcommit 893c3e719f30956a0f83066f19cd23e58cb94104[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Tue Nov 8 12:26:52 2022 +0200
+
+    Swagger config 3
+
+[33mcommit d1e627c9c675d4dfa169a499cd23b4d45724ed0b[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Tue Nov 8 12:25:56 2022 +0200
+
+    AuthorizationOperationFilter 2
+
+[33mcommit 093140c33da6dbf57164b29721da614457a30ecb[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Tue Nov 8 12:15:54 2022 +0200
+
+    AuthorizationOperationFilter 1
+
+[33mcommit b77d159785a50b0f807d7398f0ef02d86c86275b[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Tue Nov 8 12:14:41 2022 +0200
+
+    Adding AuthorizationOperationFilter class
+
+[33mcommit d56f15da2b68026b912f40f6e8323c80082c0575[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Tue Nov 8 12:13:32 2022 +0200
+
+    Swagger config 2
+
+[33mcommit 5dac8d17afab0fadfbea266e83c92d6ae072dae8[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Tue Nov 8 12:02:12 2022 +0200
+
+    AuthTokenOperation class 2
+
+[33mcommit f220e58a283f2e6b27b5c1f609f7a150f7fd5f7c[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Tue Nov 8 12:01:02 2022 +0200
+
+    AuthTokenOperation class 1
+
+[33mcommit ab21ed579d96e70f9af81f11aed2ede0f89bde06[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Tue Nov 8 11:37:00 2022 +0200
+
+    Adding AuthTokenOperation class
+
+[33mcommit 6763ba6a0e816efa478456fd3d9f88717eca0fcc[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Tue Nov 8 11:25:13 2022 +0200
+
+    Swagger config before custom OAuth solution
+
+[33mcommit 16a89a1de592747645989b0507d5b95d5fc71bdc[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Tue Nov 8 11:18:05 2022 +0200
+
+    Adding Swagger
+
+[33mcommit 162b2af60691fa6893c996b5d181124d8282c50e[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Mon Nov 7 21:29:00 2022 +0200
+
+    Changing return type back
+
+[33mcommit 024cfaf0354d8971d7f2c3938cdf9ef007909a80[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Mon Nov 7 21:26:54 2022 +0200
+
+    Changing return type
+
+[33mcommit 253a4842426ba9c271e09d6bae3c90b35d3fb672[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Mon Nov 7 21:18:22 2022 +0200
+
+    Getting user ID
+
+[33mcommit 256c365b5f2a41f6720226c491465695609d70d5[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Mon Nov 7 20:58:14 2022 +0200
+
+    Asp.net template files
+    
+    All the files that are in the ASP.net web framework template by default
+
+[33mcommit 0b6e8c83ec9b16b1011be96b5ed85eb4b3c4a92a[m
+Author: CurtisLV <28841061+CurtisLV@users.noreply.github.com>
+Date:   Mon Nov 7 16:05:19 2022 +0200
+
+    Update Readme
+    
+    Added proper spacing to the header
+
+[33mcommit 40b1b7e1db7776b0064ed2c20eef8fc53773f26c[m
+Author: CurtisLV <curtislv@gmail.com>
+Date:   Mon Nov 7 15:29:18 2022 +0200
+
+    Creating blank project in same folder
+
+[33mcommit eccdd892e7032732a60e63f45a14112942611193[m
+Author: CurtisLV <28841061+CurtisLV@users.noreply.github.com>
+Date:   Mon Nov 7 14:54:05 2022 +0200
+
+    Initial commit
