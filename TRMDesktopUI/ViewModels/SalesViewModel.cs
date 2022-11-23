@@ -31,7 +31,6 @@ namespace TRMDesktopUI.ViewModels
             {
                 _itemQuantity = value;
                 NotifyOfPropertyChange(() => ItemQuantity);
-                // TODO - ItemQuantity or Products???
             }
         }
 
