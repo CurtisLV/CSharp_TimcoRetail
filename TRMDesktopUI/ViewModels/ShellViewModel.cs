@@ -8,12 +8,15 @@ using TRMDesktopUI.EventModels;
 
 namespace TRMDesktopUI.ViewModels
 {
-    internal class ShellViewModel : Conductor<object>, IHandle<LogOnEvent>
+    public class ShellViewModel : Conductor<object>, IHandle<LogOnEvent>
     {
         private LoginViewModel _loginVM;
+        private IEventAggregator _events;
 
-        public ShellViewModel(LoginViewModel loginVM)
+        public ShellViewModel(LoginViewModel loginVM, IEventAggregator events)
         {
+            _events = events;
+            _events.Subscribe(this);
             _loginVM = loginVM;
             ActivateItem(_loginVM);
         }
