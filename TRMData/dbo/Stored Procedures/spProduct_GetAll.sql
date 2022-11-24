@@ -3,7 +3,7 @@ AS
 BEGIN
 	set nocount on;
 
-	SELECT p.id
+	SELECT p.Id
 		,p.ProductName
 		,p.[Description]
 		,p.RetailPrice
