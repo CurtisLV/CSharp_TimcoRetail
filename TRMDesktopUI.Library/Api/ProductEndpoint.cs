@@ -10,7 +10,7 @@ using TRMDesktopUI.Library.Models;
 
 namespace TRMDesktopUI.Library.Api
 {
-    public class ProductEndpoint
+    public class ProductEndpoint : IProductEndpoint
     {
         private IAPIHelper _apiHelper;
 
@@ -19,7 +19,7 @@ namespace TRMDesktopUI.Library.Api
             _apiHelper = apiHelper;
         }
 
-        public async Task<List<string>> GetAll()
+        public async Task<List<ProductModel>> GetAll()
         {
             using (
                 HttpResponseMessage response = await _apiHelper.ApiClient.GetAsync("/api/Product")
@@ -27,13 +27,8 @@ namespace TRMDesktopUI.Library.Api
             {
                 if (response.IsSuccessStatusCode)
                 {
-                    var result = await response.Content.ReadAsAsync<LoggedInUserModel>();
-                    _loggedInUser.CreatedDate = result.CreatedDate;
-                    _loggedInUser.EmailAddress = result.EmailAddress;
-                    _loggedInUser.FirstName = result.FirstName;
-                    _loggedInUser.LastName = result.LastName;
-                    _loggedInUser.Id = result.Id;
-                    _loggedInUser.Token = token;
+                    var result = await response.Content.ReadAsAsync<List<ProductModel>>();
+                    return result;
                 }
                 else
                 {
