@@ -28,7 +28,7 @@ namespace TRMDesktopUI.ViewModels
         private async Task LoadProducts()
         {
             var productList = await _productEndpoint.GetAll();
-            Products = new BindingList<ProductModel>();
+            Products = new BindingList<ProductModel>(productList);
         }
 
         private BindingList<ProductModel> _products;
