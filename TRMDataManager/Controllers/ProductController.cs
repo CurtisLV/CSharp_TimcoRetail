@@ -7,7 +7,12 @@ using System.Web.Http;
 
 namespace TRMDataManager.Controllers
 {
+    [Authorize]
     public class ProductController : ApiController
     {
+        public List<string> Get()
+        {
+            return new string[] { "value1", "value2", userId };
+        }
     }
 }
