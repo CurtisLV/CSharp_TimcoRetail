@@ -5,6 +5,7 @@ using System.Windows;
 using System.Windows.Controls;
 using Caliburn.Micro;
 using TRMDesktopUI.Helpers;
+using TRMDesktopUI.Library.Api;
 using TRMDesktopUI.Library.Models;
 using TRMDesktopUI.ViewModels;
 
@@ -27,7 +28,7 @@ namespace TRMDesktopUI
 
         protected override void Configure()
         {
-            _container.Instance(_container);
+            _container.Instance(_container).PerRequest<IProductEndpoint, ProductEndpoint>();
 
             _container
                 .Singleton<IWindowManager, WindowManager>()
