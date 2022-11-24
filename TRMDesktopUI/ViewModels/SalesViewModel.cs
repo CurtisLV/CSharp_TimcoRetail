@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Caliburn.Micro;
 using TRMDesktopUI.Library.Api;
+using TRMDesktopUI.Library.Models;
 
 namespace TRMDesktopUI.ViewModels
 {
@@ -18,9 +19,21 @@ namespace TRMDesktopUI.ViewModels
             _productEndpoint = productEndpoint;
         }
 
-        private BindingList<string> _products;
+        protected override async void OnViewLoaded(object view)
+        {
+            base.OnViewLoaded(view);
+            await LoadProducts();
+        }
 
-        public BindingList<string> Products
+        private async Task LoadProducts()
+        {
+            var productList = await _productEndpoint.GetAll();
+            Products = new BindingList<ProductModel>();
+        }
+
+        private BindingList<ProductModel> _products;
+
+        public BindingList<ProductModel> Products
         {
             get { return _products; }
             set
@@ -67,9 +80,9 @@ namespace TRMDesktopUI.ViewModels
             }
         }
 
-        private BindingList<string> _cart;
+        private BindingList<ProductModel> _cart;
 
-        public BindingList<string> Cart
+        public BindingList<ProductModel> Cart
         {
             get { return _cart; }
             set
