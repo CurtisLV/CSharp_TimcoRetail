@@ -55,7 +55,7 @@
         <ListBox x:Name="Cart" Grid.Row="2" Grid.Column="2" MinHeight="150" MinWidth="100">
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Text="{Binding Product.ProductName}" />
+                    <TextBlock Text="{Binding DisplayText}" />
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>

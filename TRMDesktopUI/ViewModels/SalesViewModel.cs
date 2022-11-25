@@ -73,8 +73,15 @@ namespace TRMDesktopUI.ViewModels
         {
             get
             {
-                // TODO - replace with calculation
-                return "$0.00";
+                // Cart calculations
+                decimal subTotal = 0;
+
+                foreach (var item in Cart)
+                {
+                    subTotal += (item.Product.RetailPrice * item.QuantityInCart);
+                }
+
+                return subTotal.ToString("C");
             }
         }
         public string Tax
@@ -132,6 +139,7 @@ namespace TRMDesktopUI.ViewModels
             };
 
             Cart.Add(item);
+            NotifyOfPropertyChange(() => SubTotal);
         }
 
         public bool CanRemoveFromCart
@@ -149,6 +157,7 @@ namespace TRMDesktopUI.ViewModels
         public void RemoveFromCart()
         {
             //
+            NotifyOfPropertyChange(() => SubTotal);
         }
 
         public bool CanCheckOut
