@@ -137,6 +137,8 @@ namespace TRMDesktopUI.ViewModels
             if (existingItem != null)
             {
                 existingItem.QuantityInCart += ItemQuantity;
+
+                // HACK - There should be a better way to refresh cart
                 Cart.Remove(existingItem);
                 Cart.Add(existingItem);
             }
@@ -154,7 +156,6 @@ namespace TRMDesktopUI.ViewModels
             SelectedProduct.QuantityInStock -= ItemQuantity;
             ItemQuantity = 1;
             NotifyOfPropertyChange(() => SubTotal);
-            NotifyOfPropertyChange(() => Cart);
         }
 
         public bool CanRemoveFromCart
