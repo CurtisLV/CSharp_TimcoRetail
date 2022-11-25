@@ -94,9 +94,9 @@ namespace TRMDesktopUI.ViewModels
             }
         }
 
-        private BindingList<ProductModel> _cart;
+        private BindingList<CartItemModel> _cart;
 
-        public BindingList<ProductModel> Cart
+        public BindingList<CartItemModel> Cart
         {
             get { return _cart; }
             set
