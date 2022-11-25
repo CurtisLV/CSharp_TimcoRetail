@@ -132,13 +132,24 @@ namespace TRMDesktopUI.ViewModels
 
         public void AddToCart()
         {
-            CartItemModel item = new CartItemModel
-            {
-                Product = SelectedProduct,
-                QuantityInCart = ItemQuantity
-            };
+            CartItemModel existingItem = Cart.FirstOrDefault(x => x.Product == SelectedProduct);
 
-            Cart.Add(item);
+            if (existingItem != null)
+            {
+                existingItem.QuantityInCart += ItemQuantity;
+                SelectedProduct.QuantityInStock -= ItemQuantity;
+            }
+            else
+            {
+                CartItemModel item = new CartItemModel
+                {
+                    Product = SelectedProduct,
+                    QuantityInCart = ItemQuantity
+                };
+
+                Cart.Add(item);
+            }
+
             SelectedProduct.QuantityInStock -= ItemQuantity;
             ItemQuantity = 1;
             NotifyOfPropertyChange(() => SubTotal);
