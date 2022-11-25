@@ -50,8 +50,8 @@ namespace TRMDesktopUI.ViewModels
             get { return _selectedProduct; }
             set
             {
-                NotifyOfPropertyChange(() => SelectedProduct);
                 _selectedProduct = value;
+                NotifyOfPropertyChange(() => SelectedProduct);
             }
         }
 
@@ -112,6 +112,10 @@ namespace TRMDesktopUI.ViewModels
 
                 // Make sure something is selected
                 // Make sure there is a quantity on selected
+                if (SelectedProduct?.QuantityInStock >= ItemQuantity)
+                {
+                    output = true;
+                }
 
                 return output;
             }
