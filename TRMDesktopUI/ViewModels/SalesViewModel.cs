@@ -52,6 +52,7 @@ namespace TRMDesktopUI.ViewModels
             {
                 _selectedProduct = value;
                 NotifyOfPropertyChange(() => SelectedProduct);
+                NotifyOfPropertyChange(() => CanAddToCart);
             }
         }
 
@@ -64,6 +65,7 @@ namespace TRMDesktopUI.ViewModels
             {
                 _itemQuantity = value;
                 NotifyOfPropertyChange(() => ItemQuantity);
+                NotifyOfPropertyChange(() => CanAddToCart);
             }
         }
 
@@ -112,7 +114,7 @@ namespace TRMDesktopUI.ViewModels
 
                 // Make sure something is selected
                 // Make sure there is a quantity on selected
-                if (SelectedProduct?.QuantityInStock >= ItemQuantity)
+                if (ItemQuantity > 0 && SelectedProduct?.QuantityInStock >= ItemQuantity)
                 {
                     output = true;
                 }
