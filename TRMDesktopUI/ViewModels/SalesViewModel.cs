@@ -43,6 +43,18 @@ namespace TRMDesktopUI.ViewModels
             }
         }
 
+        private ProductModel _selectedProduct;
+
+        public ProductModel SelectedProduct
+        {
+            get { return _selectedProduct; }
+            set
+            {
+                NotifyOfPropertyChange(() => SelectedProduct);
+                _selectedProduct = value;
+            }
+        }
+
         private int _itemQuantity;
 
         public int ItemQuantity
