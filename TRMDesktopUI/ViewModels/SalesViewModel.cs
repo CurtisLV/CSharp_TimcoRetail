@@ -56,7 +56,7 @@ namespace TRMDesktopUI.ViewModels
             }
         }
 
-        private int _itemQuantity;
+        private int _itemQuantity = 1;
 
         public int ItemQuantity
         {
@@ -139,6 +139,8 @@ namespace TRMDesktopUI.ViewModels
             };
 
             Cart.Add(item);
+            SelectedProduct.QuantityInStock -= ItemQuantity;
+            ItemQuantity = 1;
             NotifyOfPropertyChange(() => SubTotal);
         }
 
