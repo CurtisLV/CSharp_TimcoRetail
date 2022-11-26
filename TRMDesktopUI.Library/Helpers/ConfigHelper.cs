@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TRMDesktopUI.Library.Helpers
 {
-    public class ConfigHelper
+    public class ConfigHelper : IConfigHelper
     {
         public double GetTaxRate()
         {
