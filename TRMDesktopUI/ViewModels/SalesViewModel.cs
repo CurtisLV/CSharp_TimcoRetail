@@ -88,14 +88,15 @@ namespace TRMDesktopUI.ViewModels
         {
             get
             {
-                decimal taxAmount = 0;
+                //decimal taxAmount = 0;
 
-                foreach (var item in Cart)
-                {
-                    taxAmount += (item.Product.RetailPrice * item.QuantityInCart);
-                }
+                //foreach (var item in Cart)
+                //{
+                //    //
+                //    taxAmount += (item.Product.RetailPrice * item.QuantityInCart * item.Product);
+                //}
 
-                return taxAmount.ToString("C");
+                //return taxAmount.ToString("C");
             }
         }
         public string Total
