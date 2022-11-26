@@ -74,19 +74,20 @@ namespace TRMDesktopUI.ViewModels
 
         public string SubTotal
         {
-            get
-            {
-                // Cart calculations
-                decimal subTotal = 0;
-
-                foreach (var item in Cart)
-                {
-                    subTotal += (item.Product.RetailPrice * item.QuantityInCart);
-                }
-
-                return subTotal.ToString("C");
-            }
+            get { return CalculateSubTotal().ToString("C"); }
         }
+
+        private decimal CalculateSubTotal()
+        {
+            // Cart calculations
+            decimal subTotal = 0;
+            foreach (var item in Cart)
+            {
+                subTotal += (item.Product.RetailPrice * item.QuantityInCart);
+            }
+            return subTotal;
+        }
+
         public string Tax
         {
             get
