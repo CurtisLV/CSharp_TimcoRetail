@@ -17,7 +17,7 @@ namespace TRMDesktopUI.Library.Helpers
 
             if (isValidTaxRate == false)
             {
-                throw new ConfigurationException("Tax rate is not set up properly!");
+                throw new ConfigurationErrorsException("Tax rate is not set up properly!");
             }
 
             return output;
