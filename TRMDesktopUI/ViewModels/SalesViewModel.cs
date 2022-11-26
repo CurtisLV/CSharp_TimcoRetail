@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Caliburn.Micro;
 using TRMDesktopUI.Library.Api;
+using TRMDesktopUI.Library.Helpers;
 using TRMDesktopUI.Library.Models;
 
 namespace TRMDesktopUI.ViewModels
@@ -13,10 +14,12 @@ namespace TRMDesktopUI.ViewModels
     public class SalesViewModel : Screen
     {
         private IProductEndpoint _productEndpoint;
+        private IConfigHelper _configHelper;
 
-        public SalesViewModel(IProductEndpoint productEndpoint)
+        public SalesViewModel(IProductEndpoint productEndpoint, IConfigHelper configHelper)
         {
             _productEndpoint = productEndpoint;
+            _configHelper = configHelper;
         }
 
         protected override async void OnViewLoaded(object view)
@@ -88,15 +91,19 @@ namespace TRMDesktopUI.ViewModels
         {
             get
             {
-                //decimal taxAmount = 0;
+                decimal taxAmount = 0;
+                decimal taxRate = _configHelper.GetTaxRate();
 
-                //foreach (var item in Cart)
-                //{
-                //    //
-                //    taxAmount += (item.Product.RetailPrice * item.QuantityInCart * item.Product);
-                //}
+                foreach (var item in Cart)
+                {
+                    //
+                    if (item.Product.IsTaxable)
+                    {
+                        taxAmount += (item.Product.RetailPrice * item.QuantityInCart * taxRate);
+                    }
+                }
 
-                //return taxAmount.ToString("C");
+                return taxAmount.ToString("C");
             }
         }
         public string Total

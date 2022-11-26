@@ -9,11 +9,11 @@ namespace TRMDesktopUI.Library.Helpers
 {
     public class ConfigHelper : IConfigHelper
     {
-        public double GetTaxRate()
+        public decimal GetTaxRate()
         {
             string rateText = ConfigurationManager.AppSettings["taxRate"];
 
-            bool isValidTaxRate = Double.TryParse(rateText, out double output);
+            bool isValidTaxRate = Double.TryParse(rateText, out decimal output);
 
             if (isValidTaxRate == false)
             {
