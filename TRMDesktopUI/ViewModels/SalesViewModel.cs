@@ -88,25 +88,27 @@ namespace TRMDesktopUI.ViewModels
             return subTotal;
         }
 
+        private decimal CalculateTax()
+        {
+            decimal taxAmount = 0;
+            decimal taxRate = _configHelper.GetTaxRate();
+            foreach (var item in Cart)
+            {
+                //
+                if (item.Product.IsTaxable)
+                {
+                    taxAmount += (item.Product.RetailPrice * item.QuantityInCart * taxRate);
+                }
+            }
+
+            return taxAmount;
+        }
+
         public string Tax
         {
-            get
-            {
-                decimal taxAmount = 0;
-                decimal taxRate = _configHelper.GetTaxRate();
-
-                foreach (var item in Cart)
-                {
-                    //
-                    if (item.Product.IsTaxable)
-                    {
-                        taxAmount += (item.Product.RetailPrice * item.QuantityInCart * taxRate);
-                    }
-                }
-
-                return taxAmount.ToString("C");
-            }
+            get { return CalculateTax().ToString("C"); }
         }
+
         public string Total
         {
             get
