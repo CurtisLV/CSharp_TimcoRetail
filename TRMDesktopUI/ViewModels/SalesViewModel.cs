@@ -13,8 +13,8 @@ namespace TRMDesktopUI.ViewModels
 {
     public class SalesViewModel : Screen
     {
-        private IProductEndpoint _productEndpoint;
-        private IConfigHelper _configHelper;
+        IProductEndpoint _productEndpoint;
+        IConfigHelper _configHelper;
 
         public SalesViewModel(IProductEndpoint productEndpoint, IConfigHelper configHelper)
         {
