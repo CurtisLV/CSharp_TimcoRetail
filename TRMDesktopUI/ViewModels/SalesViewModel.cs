@@ -191,7 +191,6 @@ namespace TRMDesktopUI.ViewModels
 
         public void RemoveFromCart()
         {
-            //
             NotifyOfPropertyChange(() => SubTotal);
             NotifyOfPropertyChange(() => Tax);
             NotifyOfPropertyChange(() => Total);
