@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Caliburn.Micro;
 using TRMDesktopUI.Library.Api;
@@ -91,10 +88,9 @@ namespace TRMDesktopUI.ViewModels
         private decimal CalculateTax()
         {
             decimal taxAmount = 0;
-            decimal taxRate = _configHelper.GetTaxRate();
+            decimal taxRate = _configHelper.GetTaxRate() / 100;
             foreach (var item in Cart)
             {
-                //
                 if (item.Product.IsTaxable)
                 {
                     taxAmount += (item.Product.RetailPrice * item.QuantityInCart * taxRate);
