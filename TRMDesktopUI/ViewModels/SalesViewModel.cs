@@ -77,12 +77,15 @@ namespace TRMDesktopUI.ViewModels
         private decimal CalculateSubTotal()
         {
             // Cart calculations
-            decimal subTotal = 0;
-            foreach (var item in Cart)
-            {
-                subTotal += (item.Product.RetailPrice * item.QuantityInCart);
-            }
-            return subTotal;
+            //decimal subTotal = 0;
+            //foreach (var item in Cart)
+            //{
+            //    subTotal += (item.Product.RetailPrice * item.QuantityInCart);
+            //}
+
+            //subTotal += Cart.Sum(x => x.Product.RetailPrice * x.QuantityInCart);
+            //return subTotal;
+            return Cart.Sum(x => x.Product.RetailPrice * x.QuantityInCart);
         }
 
         private decimal CalculateTax()
