@@ -76,15 +76,6 @@ namespace TRMDesktopUI.ViewModels
 
         private decimal CalculateSubTotal()
         {
-            // Cart calculations
-            //decimal subTotal = 0;
-            //foreach (var item in Cart)
-            //{
-            //    subTotal += (item.Product.RetailPrice * item.QuantityInCart);
-            //}
-
-            //subTotal += Cart.Sum(x => x.Product.RetailPrice * x.QuantityInCart);
-            //return subTotal;
             return Cart.Sum(x => x.Product.RetailPrice * x.QuantityInCart);
         }
 
@@ -95,14 +86,6 @@ namespace TRMDesktopUI.ViewModels
 
             taxAmount = Cart.Where(x => x.Product.IsTaxable)
                 .Sum(x => x.Product.RetailPrice * x.QuantityInCart * taxRate);
-
-            //foreach (var item in Cart)
-            //{
-            //    if (item.Product.IsTaxable)
-            //    {
-            //        taxAmount += (item.Product.RetailPrice * item.QuantityInCart * taxRate);
-            //    }
-            //}
 
             return taxAmount;
         }
