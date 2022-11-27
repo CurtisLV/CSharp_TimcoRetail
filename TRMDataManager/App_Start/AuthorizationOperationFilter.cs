@@ -26,7 +26,7 @@ namespace TRMDataManager.App_Start
                     name = "Authorization",
                     @in = "header",
                     description = "access token",
-                    required = true,
+                    required = false,
                     type = "string"
                 }
             );
