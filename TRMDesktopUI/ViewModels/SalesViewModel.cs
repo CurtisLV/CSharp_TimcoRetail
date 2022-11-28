@@ -12,10 +12,16 @@ namespace TRMDesktopUI.ViewModels
     {
         IProductEndpoint _productEndpoint;
         IConfigHelper _configHelper;
+        ISaleEndpoint _saleEndpoint;
 
-        public SalesViewModel(IProductEndpoint productEndpoint, IConfigHelper configHelper)
+        public SalesViewModel(
+            IProductEndpoint productEndpoint,
+            ISaleEndpoint saleEndpoint,
+            IConfigHelper configHelper
+        )
         {
             _productEndpoint = productEndpoint;
+            _saleEndpoint = saleEndpoint;
             _configHelper = configHelper;
         }
 

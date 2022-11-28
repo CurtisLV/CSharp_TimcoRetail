@@ -12,12 +12,6 @@ namespace TRMDataManager.Controllers
     [Authorize]
     public class SaleController : ApiController
     {
-        //public List<ProductModel> Get()
-        //{
-        //    ProductData data = new ProductData();
-        //    return data.GetProducts();
-        //}
-
         public void Post(SaleModel sale)
         {
             Console.WriteLine();

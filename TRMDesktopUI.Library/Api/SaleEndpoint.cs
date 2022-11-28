@@ -5,10 +5,11 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using TRMDesktopUI.Helpers;
+using TRMDesktopUI.Library.Models;
 
 namespace TRMDesktopUI.Library.Api
 {
-    public class SaleEndpoint
+    public class SaleEndpoint : ISaleEndpoint
     {
         private IAPIHelper _apiHelper;
 
@@ -17,22 +18,24 @@ namespace TRMDesktopUI.Library.Api
             _apiHelper = apiHelper;
         }
 
-        //public async Task<List<ProductModel>> GetAll()
-        //{
-        //    using (
-        //        HttpResponseMessage response = await _apiHelper.ApiClient.GetAsync("/api/Product")
-        //    )
-        //    {
-        //        if (response.IsSuccessStatusCode)
-        //        {
-        //            var result = await response.Content.ReadAsAsync<List<ProductModel>>();
-        //            return result;
-        //        }
-        //        else
-        //        {
-        //            throw new Exception(response?.ReasonPhrase);
-        //        }
-        //    }
-        //}
+        public async Task PostSale(SaleModel sale)
+        {
+            using (
+                HttpResponseMessage response = await _apiHelper.ApiClient.PostAsJsonAsync(
+                    "/api/Sale",
+                    sale
+                )
+            )
+            {
+                if (response.IsSuccessStatusCode)
+                {
+                    // Log succesful call?
+                }
+                else
+                {
+                    throw new Exception(response?.ReasonPhrase);
+                }
+            }
+        }
     }
 }
