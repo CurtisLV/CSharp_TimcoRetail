@@ -161,6 +161,7 @@ namespace TRMDesktopUI.ViewModels
             NotifyOfPropertyChange(() => SubTotal);
             NotifyOfPropertyChange(() => Tax);
             NotifyOfPropertyChange(() => Total);
+            NotifyOfPropertyChange(() => CanCheckOut);
         }
 
         public bool CanRemoveFromCart
@@ -180,6 +181,7 @@ namespace TRMDesktopUI.ViewModels
             NotifyOfPropertyChange(() => SubTotal);
             NotifyOfPropertyChange(() => Tax);
             NotifyOfPropertyChange(() => Total);
+            NotifyOfPropertyChange(() => CanCheckOut);
         }
 
         public bool CanCheckOut
@@ -189,6 +191,10 @@ namespace TRMDesktopUI.ViewModels
                 bool output = false;
 
                 // Make sure there is something in the cart
+                if (Cart.Count > 0)
+                {
+                    output = true;
+                }
 
                 return output;
             }
@@ -196,7 +202,21 @@ namespace TRMDesktopUI.ViewModels
 
         public void CheckOut()
         {
-            //
+            // Create a SaleModel
+            // Post to API
+
+            SaleModel sale = new SaleModel();
+
+            foreach (var item in Cart)
+            {
+                sale.SaleDetails.Add(
+                    new SaleDetailModel
+                    {
+                        ProductId = item.Product.Id,
+                        Quantity = item.QuantityInCart
+                    }
+                );
+            }
         }
     }
 }
