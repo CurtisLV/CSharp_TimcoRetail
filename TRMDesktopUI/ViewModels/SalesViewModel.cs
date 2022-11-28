@@ -206,7 +206,7 @@ namespace TRMDesktopUI.ViewModels
             }
         }
 
-        public void CheckOut()
+        public async Task CheckOut()
         {
             // Create a SaleModel
             // Post to API
@@ -223,6 +223,8 @@ namespace TRMDesktopUI.ViewModels
                     }
                 );
             }
+
+            await _saleEndpoint.PostSale(sale);
         }
     }
 }
