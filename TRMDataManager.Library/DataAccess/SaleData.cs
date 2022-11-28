@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TRMDataManager.Library.Internal.DataAccess;
+﻿using TRMDesktopUI.Library.Models;
 
 namespace TRMDataManager.Library.DataAccess
 {
@@ -23,7 +18,7 @@ namespace TRMDataManager.Library.DataAccess
     //}
     public class SaleData
     {
-        public void SaveSale(SaleData sale)
+        public void SaveSale(SaleModel sale)
         {
             // TODO: Make it SOLID/DRY/Better
             // Start filling in the models we will save to DB

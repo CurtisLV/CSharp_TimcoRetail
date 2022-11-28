@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Web.Http;
-using TRMDataManager.Models;
+using TRMDataManager.Library.Models;
 
 namespace TRMDataManager.Controllers
 {
