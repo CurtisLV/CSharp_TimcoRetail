@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using TRMDataManager.Library.DataAccess;
+using TRMDataManager.Models;
 
 namespace TRMDataManager.Controllers
 {
@@ -17,9 +18,9 @@ namespace TRMDataManager.Controllers
         //    return data.GetProducts();
         //}
 
-        public void Post()
+        public void Post(SaleModel sale)
         {
-            //
+            Console.WriteLine();
         }
     }
 }
