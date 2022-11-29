@@ -68,7 +68,7 @@ namespace TRMDataManager.Library.DataAccess
 
             // Finish filling in the sale detail models
 
-            foreach (var item in details)
+            foreach (SaleDetailDBModel item in details)
             {
                 item.SaleID = sale.Id;
                 // Save the sale detail models
@@ -77,17 +77,3 @@ namespace TRMDataManager.Library.DataAccess
         }
     }
 }
-//public List<ProductModel> GetProducts()
-//{
-//    SqlDataAccess sql = new SqlDataAccess();
-
-//    var output = sql.LoadData<ProductModel, dynamic>(
-//        "dbo.spProduct_GetAll",
-//        new
-//        {
-//        },
-//        "TRMData"
-//    );
-
-//    return output;
-//}
