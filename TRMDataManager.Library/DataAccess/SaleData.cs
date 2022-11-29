@@ -1,4 +1,5 @@
-﻿using TRMDesktopUI.Library.Models;
+﻿using System.Collections.Generic;
+using TRMDataManager.Library.Models;
 
 namespace TRMDataManager.Library.DataAccess
 {
@@ -22,6 +23,21 @@ namespace TRMDataManager.Library.DataAccess
         {
             // TODO: Make it SOLID/DRY/Better
             // Start filling in the models we will save to DB
+            List<SaleDetailDBModel> details = new List<SaleDetailDBModel>();
+
+            foreach (var item in sale.SaleDetails)
+            {
+                var detail = new SaleDetailDBModel()
+                {
+                    ProductId = item.ProductId,
+                    Quantity = item.Quantity,
+                };
+
+                // Get info about the product
+
+                details.Add(detail);
+            }
+
             // Fill in available info
             // Create the Sale model
             // Save the Sale model
