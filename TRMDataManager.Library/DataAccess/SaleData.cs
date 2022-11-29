@@ -35,6 +35,8 @@ namespace TRMDataManager.Library.DataAccess
 
                 // Get info about the product
 
+
+
                 details.Add(detail);
             }
 
