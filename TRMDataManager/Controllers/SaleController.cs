@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Web.Http;
+using Microsoft.AspNet.Identity;
+using TRMDataManager.Library.DataAccess;
 using TRMDataManager.Library.Models;
 
 namespace TRMDataManager.Controllers
@@ -9,7 +11,11 @@ namespace TRMDataManager.Controllers
     {
         public void Post(SaleModel sale)
         {
-            Console.WriteLine();
+            SaleData data = new SaleData();
+
+            string userId = RequestContext.Principal.Identity.GetUserId();
+
+            data.SaveSale(sale, userId);
         }
     }
 }
