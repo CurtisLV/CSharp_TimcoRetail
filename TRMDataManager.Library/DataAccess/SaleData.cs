@@ -65,11 +65,12 @@ namespace TRMDataManager.Library.DataAccess
 
             // Get ID from sale model
 
-            sql.LoadData<int, dynamic>(
-                "spSale_Lookup",
-                new { CashierId = sale.CashierId, SaleDate = sale.SaleDate },
-                "TRMData"
-            );
+            sale.Id = sql.LoadData<int, dynamic>(
+                    "spSale_Lookup",
+                    new { sale.CashierId, sale.SaleDate },
+                    "TRMData"
+                )
+                .FirstOrDefault();
 
             // Finish filling in the sale detail models
 
