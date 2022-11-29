@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using TRMDataManager.Library.Models;
 
 namespace TRMDataManager.Library.DataAccess
@@ -20,7 +21,7 @@ namespace TRMDataManager.Library.DataAccess
     //}
     public class SaleData
     {
-        public void SaveSale(SaleModel sale)
+        public void SaveSale(SaleModel saleInfo)
         {
             // TODO: Make it SOLID/DRY/Better
             // Start filling in the models we will save to DB
@@ -29,7 +30,7 @@ namespace TRMDataManager.Library.DataAccess
 
             decimal taxRate = ConfigHelper.GetTaxRate() / 100;
 
-            foreach (var item in sale.SaleDetails)
+            foreach (var item in saleInfo.SaleDetails)
             {
                 var detail = new SaleDetailDBModel()
                 {
@@ -58,9 +59,20 @@ namespace TRMDataManager.Library.DataAccess
                 details.Add(detail);
             }
 
-            // Fill in available info
             // Create the Sale model
+
+            SaleDBModel sale = new SaleDBModel()
+            {
+                SubTotal = details.Sum(x => x.PurchasePrice),
+                Tax = details.Sum(x => x.Tax)
+            };
+
+            sale.Total = sale.SubTotal + sale.Tax;
+
             // Save the Sale model
+
+
+
             // Get ID from sale model
             // Finish filling in the sale detail models
 
