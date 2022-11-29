@@ -1,27 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using TRMDataManager.Library.Internal.DataAccess;
 using TRMDataManager.Library.Models;
 
 namespace TRMDataManager.Library.DataAccess
 {
-    //public List<ProductModel> GetProducts()
-    //{
-    //    SqlDataAccess sql = new SqlDataAccess();
-
-    //    var output = sql.LoadData<ProductModel, dynamic>(
-    //        "dbo.spProduct_GetAll",
-    //        new
-    //        {
-    //        },
-    //        "TRMData"
-    //    );
-
-    //    return output;
-    //}
     public class SaleData
     {
-        public void SaveSale(SaleModel saleInfo)
+        public void SaveSale(SaleModel saleInfo, string cashierId)
         {
             // TODO: Make it SOLID/DRY/Better
             // Start filling in the models we will save to DB
@@ -64,7 +51,8 @@ namespace TRMDataManager.Library.DataAccess
             SaleDBModel sale = new SaleDBModel()
             {
                 SubTotal = details.Sum(x => x.PurchasePrice),
-                Tax = details.Sum(x => x.Tax)
+                Tax = details.Sum(x => x.Tax),
+                CashierId = cashierId
             };
 
             sale.Total = sale.SubTotal + sale.Tax;
@@ -72,6 +60,8 @@ namespace TRMDataManager.Library.DataAccess
             // Save the Sale model
 
 
+            SqlDataAccess sql = new SqlDataAccess();
+            sql.SaveData<SaleDBModel>("dbo.spSale_Insert", sale, "TRMData");
 
             // Get ID from sale model
             // Finish filling in the sale detail models
@@ -80,3 +70,17 @@ namespace TRMDataManager.Library.DataAccess
         }
     }
 }
+//public List<ProductModel> GetProducts()
+//{
+//    SqlDataAccess sql = new SqlDataAccess();
+
+//    var output = sql.LoadData<ProductModel, dynamic>(
+//        "dbo.spProduct_GetAll",
+//        new
+//        {
+//        },
+//        "TRMData"
+//    );
+
+//    return output;
+//}
