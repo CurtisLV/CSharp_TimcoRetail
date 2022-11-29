@@ -66,6 +66,8 @@ namespace TRMDataManager.Library.DataAccess
             // Get ID from sale model
 
 
+
+
             // Finish filling in the sale detail models
 
             foreach (SaleDetailDBModel item in details)

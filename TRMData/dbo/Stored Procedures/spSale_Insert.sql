@@ -2,9 +2,9 @@
 	@Id int output, 
 	@CashierId nvarchar(128),
 	@SaleDate datetime2,
-	@SubTotal decimal,
-	@Tax decimal,
-	@Total decimal
+	@SubTotal money,
+	@Tax money,
+	@Total money
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
@@ -15,5 +15,5 @@ BEGIN
 	insert into dbo.Sale (CashierId, SaleDate, SubTotal, Tax, Total)
 	values (@CashierId, @SaleDate, @SubTotal, @Tax, @Total);
 
-	select @id = @@IDENTITY;
+	select @Id = @@IDENTITY;
 END
