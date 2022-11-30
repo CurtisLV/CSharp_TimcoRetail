@@ -8,6 +8,7 @@ namespace TRMDesktopUI.Models
         public string ProductName { get; set; }
         public string Description { get; set; }
         public decimal RetailPrice { get; set; }
+
         private int _quantityInStock;
 
         public int QuantityInStock
@@ -26,7 +27,7 @@ namespace TRMDesktopUI.Models
 
         public void CallPropertyChanged(string propertyName)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(propertyName)));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
