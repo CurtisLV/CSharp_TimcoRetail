@@ -148,7 +148,6 @@ namespace TRMDesktopUI.ViewModels
                 bool output = false;
 
                 // Make sure something is selected
-                // Make sure there is a quantity on selected
                 if (ItemQuantity > 0 && SelectedProduct?.QuantityInStock >= ItemQuantity)
                 {
                     output = true;
@@ -193,7 +192,7 @@ namespace TRMDesktopUI.ViewModels
             {
                 bool output = false;
 
-                if (SelectedCartItem != null)
+                if (SelectedCartItem != null && SelectedCartItem?.Product.QuantityInStock >= 0)
                 {
                     output = true;
                 }
@@ -204,6 +203,17 @@ namespace TRMDesktopUI.ViewModels
 
         public void RemoveFromCart()
         {
+            SelectedCartItem.Product.QuantityInStock += 1;
+
+            if (SelectedCartItem.QuantityInCart > 1)
+            {
+                SelectedCartItem.QuantityInCart -= 1;
+            }
+            else
+            {
+                Cart.Remove(SelectedCartItem);
+            }
+
             NotifyOfPropertyChange(() => SubTotal);
             NotifyOfPropertyChange(() => Tax);
             NotifyOfPropertyChange(() => Total);
