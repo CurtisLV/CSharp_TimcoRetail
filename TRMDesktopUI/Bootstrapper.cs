@@ -37,6 +37,10 @@ namespace TRMDesktopUI
                 cfg.CreateMap<CartItemModel, CartItemDisplayModel>();
             });
 
+            var mapper = config.CreateMapper();
+
+            _container.Instance(mapper);
+
             _container
                 .Instance(_container)
                 .PerRequest<IProductEndpoint, ProductEndpoint>()

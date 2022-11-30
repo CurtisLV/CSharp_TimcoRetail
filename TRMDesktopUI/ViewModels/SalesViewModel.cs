@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Caliburn.Micro;
 using TRMDesktopUI.Library.Api;
 using TRMDesktopUI.Library.Helpers;
@@ -13,16 +14,19 @@ namespace TRMDesktopUI.ViewModels
         IProductEndpoint _productEndpoint;
         IConfigHelper _configHelper;
         ISaleEndpoint _saleEndpoint;
+        IMapper _mapper;
 
         public SalesViewModel(
             IProductEndpoint productEndpoint,
             ISaleEndpoint saleEndpoint,
-            IConfigHelper configHelper
+            IConfigHelper configHelper,
+            IMapper mapper
         )
         {
             _productEndpoint = productEndpoint;
             _saleEndpoint = saleEndpoint;
             _configHelper = configHelper;
+            _mapper = mapper;
         }
 
         protected override async void OnViewLoaded(object view)
