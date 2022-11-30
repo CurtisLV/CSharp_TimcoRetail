@@ -8,7 +8,7 @@ namespace TRMDesktopUI.Models
 {
     public class CartItemDisplayModel
     {
-        public ProductModel Product { get; set; }
+        public ProductDisplayModel Product { get; set; }
         public int QuantityInCart { get; set; }
 
         public string DisplayText
