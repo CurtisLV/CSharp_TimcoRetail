@@ -68,6 +68,18 @@ namespace TRMDesktopUI.ViewModels
                 NotifyOfPropertyChange(() => CanAddToCart);
             }
         }
+        private CartItemDisplayModel _selectedCartItem;
+
+        public CartItemDisplayModel SelectedCartItem
+        {
+            get { return _selectedCartItem; }
+            set
+            {
+                _selectedCartItem = value;
+                NotifyOfPropertyChange(() => SelectedCartItem);
+                NotifyOfPropertyChange(() => CanRemoveFromCart);
+            }
+        }
 
         private int _itemQuantity = 1;
 
@@ -181,7 +193,10 @@ namespace TRMDesktopUI.ViewModels
             {
                 bool output = false;
 
-                // Make sure something is selected
+                if (SelectedCartItem != null)
+                {
+                    output = true;
+                }
 
                 return output;
             }
