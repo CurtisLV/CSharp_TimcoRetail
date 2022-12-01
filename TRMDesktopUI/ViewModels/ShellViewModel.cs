@@ -25,7 +25,7 @@ namespace TRMDesktopUI.ViewModels
             ActivateItem(IoC.Get<LoginViewModel>());
         }
 
-        public bool IsAccountVisible
+        public bool IsLoggedIn
         {
             get
             {
@@ -47,13 +47,13 @@ namespace TRMDesktopUI.ViewModels
         {
             _user.LogOffUser();
             ActivateItem(IoC.Get<LoginViewModel>());
-            NotifyOfPropertyChange(() => IsAccountVisible);
+            NotifyOfPropertyChange(() => IsLoggedIn);
         }
 
         public void Handle(LogOnEvent message)
         {
             ActivateItem(_salesVM);
-            NotifyOfPropertyChange(() => IsAccountVisible);
+            NotifyOfPropertyChange(() => IsLoggedIn);
         }
     }
 }
