@@ -71,7 +71,8 @@ namespace TRMDesktopUI.ViewModels
 
         private void ResetSalesViewModel()
         {
-            //
+            _cart = new BindingList<CartItemDisplayModel>();
+            // TODO - Add clearing the selected cart item if does not that itself
         }
 
         private CartItemDisplayModel _selectedCartItem;
