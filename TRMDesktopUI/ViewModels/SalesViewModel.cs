@@ -69,10 +69,11 @@ namespace TRMDesktopUI.ViewModels
             }
         }
 
-        private void ResetSalesViewModel()
+        private async Task ResetSalesViewModel()
         {
             _cart = new BindingList<CartItemDisplayModel>();
             // TODO - Add clearing the selected cart item if does not that itself
+            await LoadProducts();
         }
 
         private CartItemDisplayModel _selectedCartItem;
@@ -263,6 +264,7 @@ namespace TRMDesktopUI.ViewModels
             }
 
             await _saleEndpoint.PostSale(sale);
+            await ResetSalesViewModel();
         }
     }
 }
