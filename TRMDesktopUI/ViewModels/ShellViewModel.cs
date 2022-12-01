@@ -29,6 +29,11 @@ namespace TRMDesktopUI.ViewModels
 
         public void ExitApplication()
         {
+            TryClose();
+        }
+
+        public void LogOut()
+        {
             //
         }
 

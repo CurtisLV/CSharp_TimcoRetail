@@ -13,7 +13,7 @@
                 <MenuItem x:Name="ExitApplication" Header="E_xit" />
             </MenuItem>
             <MenuItem Header="_Account">
-                <MenuItem x:Name="LoginScreen" Header="_Login" />
+                <MenuItem x:Name="LogOut" Header="_Log Out" />
             </MenuItem>
         </Menu>
         <Grid>
