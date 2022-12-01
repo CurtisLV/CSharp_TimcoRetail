@@ -25,6 +25,19 @@ namespace TRMDesktopUI.ViewModels
             ActivateItem(IoC.Get<LoginViewModel>());
         }
 
+        public bool IsAccountVisible
+        {
+            get
+            {
+                bool output = false;
+                if (string.IsNullOrWhiteSpace(_user.Token) == false)
+                {
+                    output = true;
+                }
+                return output;
+            }
+        }
+
         public void ExitApplication()
         {
             TryClose();
@@ -34,11 +47,13 @@ namespace TRMDesktopUI.ViewModels
         {
             _user.LogOffUser();
             ActivateItem(IoC.Get<LoginViewModel>());
+            NotifyOfPropertyChange(() => IsAccountVisible);
         }
 
         public void Handle(LogOnEvent message)
         {
             ActivateItem(_salesVM);
+            NotifyOfPropertyChange(() => IsAccountVisible);
         }
     }
 }
