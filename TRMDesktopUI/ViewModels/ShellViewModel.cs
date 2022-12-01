@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Caliburn.Micro;
+﻿using Caliburn.Micro;
 using TRMDesktopUI.EventModels;
 
 namespace TRMDesktopUI.ViewModels
@@ -13,11 +8,7 @@ namespace TRMDesktopUI.ViewModels
         private IEventAggregator _events;
         private SalesViewModel _salesVM;
 
-        public ShellViewModel(
-            IEventAggregator events,
-            SalesViewModel salesVM,
-            SimpleContainer container
-        )
+        public ShellViewModel(IEventAggregator events, SalesViewModel salesVM)
         {
             _events = events;
             _salesVM = salesVM;
