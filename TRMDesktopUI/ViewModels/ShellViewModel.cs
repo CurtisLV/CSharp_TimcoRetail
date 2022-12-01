@@ -33,6 +33,7 @@ namespace TRMDesktopUI.ViewModels
         public void LogOut()
         {
             _user.LogOffUser();
+            ActivateItem(IoC.Get<LoginViewModel>());
         }
 
         public void Handle(LogOnEvent message)
