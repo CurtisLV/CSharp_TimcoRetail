@@ -71,9 +71,13 @@ namespace TRMDesktopUI.ViewModels
 
         private async Task ResetSalesViewModel()
         {
-            _cart = new BindingList<CartItemDisplayModel>();
+            Cart = new BindingList<CartItemDisplayModel>();
             // TODO - Add clearing the selected cart item if does not that itself
             await LoadProducts();
+            NotifyOfPropertyChange(() => SubTotal);
+            NotifyOfPropertyChange(() => Tax);
+            NotifyOfPropertyChange(() => Total);
+            NotifyOfPropertyChange(() => CanCheckOut);
         }
 
         private CartItemDisplayModel _selectedCartItem;
