@@ -48,5 +48,21 @@ namespace TRMDataManager.Library.Internal.DataAccess
                 );
             }
         }
+
+        private IDbConnection _connection;
+        private IDbTransaction _transaction;
+
+        public void StartTransaction(string connectionStringName)
+        {
+            string connectionString = GetConnectionString(connectionStringName);
+            _connection = new SqlConnection(connectionString);
+            _transaction = _connection.BeginTransaction();
+        }
+
+        // Open connection/start transaction method
+        // Load using the transaction
+        // Save using the transaction
+        // Close connection/close connection
+        // Dispose
     }
 }
