@@ -56,6 +56,7 @@ namespace TRMDataManager.Library.Internal.DataAccess
         {
             string connectionString = GetConnectionString(connectionStringName);
             _connection = new SqlConnection(connectionString);
+            _connection.Open();
             _transaction = _connection.BeginTransaction();
         }
 
