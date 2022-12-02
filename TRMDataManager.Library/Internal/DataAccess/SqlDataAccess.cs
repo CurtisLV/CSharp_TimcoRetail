@@ -59,6 +59,17 @@ namespace TRMDataManager.Library.Internal.DataAccess
             _transaction = _connection.BeginTransaction();
         }
 
+        public void CommitTransaction()
+        {
+            _transaction?.Commit();
+            _connection?.Close();
+        }
+
+        public void RollbackTransaction()
+        {
+            _transaction?.Rollback();
+        }
+
         // Open connection/start transaction method
         // Load using the transaction
         // Save using the transaction
