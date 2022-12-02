@@ -59,6 +59,20 @@ namespace TRMDataManager.Library.Internal.DataAccess
             _transaction = _connection.BeginTransaction();
         }
 
+        public List<T> LoadDataInTransaction<T, U>(string storedProcedure, U parameters)
+        {
+            List<T> rows = _connection
+                .Query<T>(
+                    storedProcedure,
+                    parameters,
+                    commandType: CommandType.StoredProcedure,
+                    transaction: _transaction
+                )
+                .ToList();
+
+            return rows;
+        }
+
         public void SaveDataInTransaction<T>(string storedProcedure, T parameters)
         {
             // Load data method using Dapper
