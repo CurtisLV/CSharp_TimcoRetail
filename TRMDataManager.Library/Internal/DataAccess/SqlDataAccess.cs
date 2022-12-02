@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.Data.Common;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -58,8 +59,6 @@ namespace TRMDataManager.Library.Internal.DataAccess
             _connection = new SqlConnection(connectionString);
             _connection.Open();
             _transaction = _connection.BeginTransaction();
-
-            isClosed = false;
         }
 
         public List<T> LoadDataInTransaction<T, U>(string storedProcedure, U parameters)
@@ -88,40 +87,25 @@ namespace TRMDataManager.Library.Internal.DataAccess
             );
         }
 
-        private bool isClosed = false;
-
         public void CommitTransaction()
         {
             _transaction?.Commit();
+            _transaction = null;
             _connection?.Close();
-
-            isClosed = true;
+            _connection = null;
         }
 
         public void RollbackTransaction()
         {
-            _transaction?.Rollback();
+            _transaction.Rollback();
+            _transaction = null;
             _connection?.Close();
-
-            isClosed = true;
+            _connection = null;
         }
 
         public void Dispose()
         {
-            if (!isClosed)
-            {
-                try
-                {
-                    CommitTransaction();
-                }
-                catch
-                {
-                    // TODO: Log this issue
-                }
-            }
-
-            _transaction = null;
-            _connection = null;
+            CommitTransaction();
         }
 
         // Open connection/start transaction method
