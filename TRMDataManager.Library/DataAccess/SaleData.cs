@@ -60,8 +60,14 @@ namespace TRMDataManager.Library.DataAccess
             // Save the Sale model
 
 
-            SqlDataAccess sql = new SqlDataAccess();
-            sql.SaveData("dbo.spSale_Insert", sale, "TRMData");
+
+
+
+            using (SqlDataAccess sql = new SqlDataAccess())
+            {
+                sql.StartTransaction("TRMData");
+                sql.SaveDataInTransaction("dbo.spSale_Insert", sale);
+            }
 
             // Get ID from sale model
 
