@@ -84,7 +84,7 @@ namespace TRMDataManager.Library.DataAccess
 
                     sql.CommitTransaction();
                 }
-                catch (Exception ex)
+                catch
                 {
                     sql.RollbackTransaction();
                     throw;
