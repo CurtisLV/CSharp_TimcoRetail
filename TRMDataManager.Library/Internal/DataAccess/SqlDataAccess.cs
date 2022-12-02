@@ -10,7 +10,7 @@ using Dapper;
 
 namespace TRMDataManager.Library.Internal.DataAccess
 {
-    internal class SqlDataAccess
+    internal class SqlDataAccess : IDisposable
     {
         public string GetConnectionString(string name)
         {
@@ -59,6 +59,18 @@ namespace TRMDataManager.Library.Internal.DataAccess
             _transaction = _connection.BeginTransaction();
         }
 
+        public void SaveDataInTransaction<T>(string storedProcedure, T parameters)
+        {
+            // Load data method using Dapper
+
+            _connection.Execute(
+                storedProcedure,
+                parameters,
+                commandType: CommandType.StoredProcedure,
+                transaction: _transaction
+            );
+        }
+
         public void CommitTransaction()
         {
             _transaction?.Commit();
@@ -68,6 +80,12 @@ namespace TRMDataManager.Library.Internal.DataAccess
         public void RollbackTransaction()
         {
             _transaction?.Rollback();
+            _connection?.Close();
+        }
+
+        public void Dispose()
+        {
+            CommitTransaction();
         }
 
         // Open connection/start transaction method
