@@ -12,5 +12,4 @@ BEGIN
 	INSERT INTO dbo.Inventory(ProductId, Quantity, PurchasePrice, PurchaseDate)
 	VALUES (@ProductId, @Quantity, @PurchasePrice, @PurchaseDate);
 
-
 END
