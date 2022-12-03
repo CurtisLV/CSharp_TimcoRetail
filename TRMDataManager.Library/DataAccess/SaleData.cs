@@ -101,6 +101,8 @@ namespace TRMDataManager.Library.DataAccess
                 new { },
                 "TRMData"
             );
+
+            return output;
         }
     }
 }
