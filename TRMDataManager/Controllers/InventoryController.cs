@@ -9,7 +9,7 @@ using TRMDataManager.Library.Models;
 
 namespace TRMDataManager.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class InventoryController : ApiController
     {
         public List<InventoryModel> Get()
@@ -17,6 +17,12 @@ namespace TRMDataManager.Controllers
             InventoryData data = new InventoryData();
 
             return data.GetInventory();
+        }
+
+        public void Post(InventoryModel item)
+        {
+            InventoryData data = new InventoryData();
+            data.SaveInventoryRecord(item);
         }
     }
 }
