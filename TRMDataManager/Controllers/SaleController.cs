@@ -7,7 +7,7 @@ using TRMDataManager.Library.Models;
 
 namespace TRMDataManager.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Cashier")]
     public class SaleController : ApiController
     {
         public void Post(SaleModel sale)
