@@ -18,18 +18,21 @@ namespace TRMDesktopUI.ViewModels
         IConfigHelper _configHelper;
         ISaleEndpoint _saleEndpoint;
         IMapper _mapper;
+        private readonly StatusInfoViewModel _status;
 
         public SalesViewModel(
             IProductEndpoint productEndpoint,
             ISaleEndpoint saleEndpoint,
             IConfigHelper configHelper,
-            IMapper mapper
+            IMapper mapper,
+            StatusInfoViewModel status
         )
         {
             _productEndpoint = productEndpoint;
             _saleEndpoint = saleEndpoint;
             _configHelper = configHelper;
             _mapper = mapper;
+            _status = status;
         }
 
         protected override async void OnViewLoaded(object view)
@@ -41,7 +44,10 @@ namespace TRMDesktopUI.ViewModels
             }
             catch (Exception ex)
             {
-                // What do we do here?
+                _status.UpdateMessage(
+                    "Unauthorized access",
+                    "You do not have permission to interact with the sales form."
+                );
             }
         }
 
