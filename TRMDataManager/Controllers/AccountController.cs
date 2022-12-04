@@ -26,12 +26,12 @@ namespace TRMDataManager.Controllers
         private const string LocalLoginProvider = "Local";
         private ApplicationUserManager _userManager;
 
-        public AccountController()
-        {
-        }
+        public AccountController() { }
 
-        public AccountController(ApplicationUserManager userManager,
-            ISecureDataFormat<AuthenticationTicket> accessTokenFormat)
+        public AccountController(
+            ApplicationUserManager userManager,
+            ISecureDataFormat<AuthenticationTicket> accessTokenFormat
+        )
         {
             UserManager = userManager;
             AccessTokenFormat = accessTokenFormat;
@@ -41,12 +41,10 @@ namespace TRMDataManager.Controllers
         {
             get
             {
-                return _userManager ?? Request.GetOwinContext().GetUserManager<ApplicationUserManager>();
+                return _userManager
+                    ?? Request.GetOwinContext().GetUserManager<ApplicationUserManager>();
             }
-            private set
-            {
-                _userManager = value;
-            }
+            private set { _userManager = value; }
         }
 
         public ISecureDataFormat<AuthenticationTicket> AccessTokenFormat { get; private set; }
@@ -56,7 +54,9 @@ namespace TRMDataManager.Controllers
         [Route("UserInfo")]
         public UserInfoViewModel GetUserInfo()
         {
-            ExternalLoginData externalLogin = ExternalLoginData.FromIdentity(User.Identity as ClaimsIdentity);
+            ExternalLoginData externalLogin = ExternalLoginData.FromIdentity(
+                User.Identity as ClaimsIdentity
+            );
 
             return new UserInfoViewModel
             {
@@ -76,7 +76,10 @@ namespace TRMDataManager.Controllers
 
         // GET api/Account/ManageInfo?returnUrl=%2F&generateState=true
         [Route("ManageInfo")]
-        public async Task<ManageInfoViewModel> GetManageInfo(string returnUrl, bool generateState = false)
+        public async Task<ManageInfoViewModel> GetManageInfo(
+            string returnUrl,
+            bool generateState = false
+        )
         {
             IdentityUser user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
 
@@ -89,20 +92,24 @@ namespace TRMDataManager.Controllers
 
             foreach (IdentityUserLogin linkedAccount in user.Logins)
             {
-                logins.Add(new UserLoginInfoViewModel
-                {
-                    LoginProvider = linkedAccount.LoginProvider,
-                    ProviderKey = linkedAccount.ProviderKey
-                });
+                logins.Add(
+                    new UserLoginInfoViewModel
+                    {
+                        LoginProvider = linkedAccount.LoginProvider,
+                        ProviderKey = linkedAccount.ProviderKey
+                    }
+                );
             }
 
             if (user.PasswordHash != null)
             {
-                logins.Add(new UserLoginInfoViewModel
-                {
-                    LoginProvider = LocalLoginProvider,
-                    ProviderKey = user.UserName,
-                });
+                logins.Add(
+                    new UserLoginInfoViewModel
+                    {
+                        LoginProvider = LocalLoginProvider,
+                        ProviderKey = user.UserName,
+                    }
+                );
             }
 
             return new ManageInfoViewModel
@@ -123,9 +130,12 @@ namespace TRMDataManager.Controllers
                 return BadRequest(ModelState);
             }
 
-            IdentityResult result = await UserManager.ChangePasswordAsync(User.Identity.GetUserId(), model.OldPassword,
-                model.NewPassword);
-            
+            IdentityResult result = await UserManager.ChangePasswordAsync(
+                User.Identity.GetUserId(),
+                model.OldPassword,
+                model.NewPassword
+            );
+
             if (!result.Succeeded)
             {
                 return GetErrorResult(result);
@@ -143,7 +153,10 @@ namespace TRMDataManager.Controllers
                 return BadRequest(ModelState);
             }
 
-            IdentityResult result = await UserManager.AddPasswordAsync(User.Identity.GetUserId(), model.NewPassword);
+            IdentityResult result = await UserManager.AddPasswordAsync(
+                User.Identity.GetUserId(),
+                model.NewPassword
+            );
 
             if (!result.Succeeded)
             {
@@ -166,9 +179,15 @@ namespace TRMDataManager.Controllers
 
             AuthenticationTicket ticket = AccessTokenFormat.Unprotect(model.ExternalAccessToken);
 
-            if (ticket == null || ticket.Identity == null || (ticket.Properties != null
-                && ticket.Properties.ExpiresUtc.HasValue
-                && ticket.Properties.ExpiresUtc.Value < DateTimeOffset.UtcNow))
+            if (
+                ticket == null
+                || ticket.Identity == null
+                || (
+                    ticket.Properties != null
+                    && ticket.Properties.ExpiresUtc.HasValue
+                    && ticket.Properties.ExpiresUtc.Value < DateTimeOffset.UtcNow
+                )
+            )
             {
                 return BadRequest("External login failure.");
             }
@@ -180,8 +199,10 @@ namespace TRMDataManager.Controllers
                 return BadRequest("The external login is already associated with an account.");
             }
 
-            IdentityResult result = await UserManager.AddLoginAsync(User.Identity.GetUserId(),
-                new UserLoginInfo(externalData.LoginProvider, externalData.ProviderKey));
+            IdentityResult result = await UserManager.AddLoginAsync(
+                User.Identity.GetUserId(),
+                new UserLoginInfo(externalData.LoginProvider, externalData.ProviderKey)
+            );
 
             if (!result.Succeeded)
             {
@@ -208,8 +229,10 @@ namespace TRMDataManager.Controllers
             }
             else
             {
-                result = await UserManager.RemoveLoginAsync(User.Identity.GetUserId(),
-                    new UserLoginInfo(model.LoginProvider, model.ProviderKey));
+                result = await UserManager.RemoveLoginAsync(
+                    User.Identity.GetUserId(),
+                    new UserLoginInfo(model.LoginProvider, model.ProviderKey)
+                );
             }
 
             if (!result.Succeeded)
@@ -237,7 +260,9 @@ namespace TRMDataManager.Controllers
                 return new ChallengeResult(provider, this);
             }
 
-            ExternalLoginData externalLogin = ExternalLoginData.FromIdentity(User.Identity as ClaimsIdentity);
+            ExternalLoginData externalLogin = ExternalLoginData.FromIdentity(
+                User.Identity as ClaimsIdentity
+            );
 
             if (externalLogin == null)
             {
@@ -250,27 +275,37 @@ namespace TRMDataManager.Controllers
                 return new ChallengeResult(provider, this);
             }
 
-            ApplicationUser user = await UserManager.FindAsync(new UserLoginInfo(externalLogin.LoginProvider,
-                externalLogin.ProviderKey));
+            ApplicationUser user = await UserManager.FindAsync(
+                new UserLoginInfo(externalLogin.LoginProvider, externalLogin.ProviderKey)
+            );
 
             bool hasRegistered = user != null;
 
             if (hasRegistered)
             {
                 Authentication.SignOut(DefaultAuthenticationTypes.ExternalCookie);
-                
-                 ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(UserManager,
-                    OAuthDefaults.AuthenticationType);
-                ClaimsIdentity cookieIdentity = await user.GenerateUserIdentityAsync(UserManager,
-                    CookieAuthenticationDefaults.AuthenticationType);
 
-                AuthenticationProperties properties = ApplicationOAuthProvider.CreateProperties(user.UserName);
+                ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(
+                    UserManager,
+                    OAuthDefaults.AuthenticationType
+                );
+                ClaimsIdentity cookieIdentity = await user.GenerateUserIdentityAsync(
+                    UserManager,
+                    CookieAuthenticationDefaults.AuthenticationType
+                );
+
+                AuthenticationProperties properties = ApplicationOAuthProvider.CreateProperties(
+                    user.UserName
+                );
                 Authentication.SignIn(properties, oAuthIdentity, cookieIdentity);
             }
             else
             {
                 IEnumerable<Claim> claims = externalLogin.GetClaims();
-                ClaimsIdentity identity = new ClaimsIdentity(claims, OAuthDefaults.AuthenticationType);
+                ClaimsIdentity identity = new ClaimsIdentity(
+                    claims,
+                    OAuthDefaults.AuthenticationType
+                );
                 Authentication.SignIn(identity);
             }
 
@@ -280,9 +315,13 @@ namespace TRMDataManager.Controllers
         // GET api/Account/ExternalLogins?returnUrl=%2F&generateState=true
         [AllowAnonymous]
         [Route("ExternalLogins")]
-        public IEnumerable<ExternalLoginViewModel> GetExternalLogins(string returnUrl, bool generateState = false)
+        public IEnumerable<ExternalLoginViewModel> GetExternalLogins(
+            string returnUrl,
+            bool generateState = false
+        )
         {
-            IEnumerable<AuthenticationDescription> descriptions = Authentication.GetExternalAuthenticationTypes();
+            IEnumerable<AuthenticationDescription> descriptions =
+                Authentication.GetExternalAuthenticationTypes();
             List<ExternalLoginViewModel> logins = new List<ExternalLoginViewModel>();
 
             string state;
@@ -302,14 +341,17 @@ namespace TRMDataManager.Controllers
                 ExternalLoginViewModel login = new ExternalLoginViewModel
                 {
                     Name = description.Caption,
-                    Url = Url.Route("ExternalLogin", new
-                    {
-                        provider = description.AuthenticationType,
-                        response_type = "token",
-                        client_id = Startup.PublicClientId,
-                        redirect_uri = new Uri(Request.RequestUri, returnUrl).AbsoluteUri,
-                        state = state
-                    }),
+                    Url = Url.Route(
+                        "ExternalLogin",
+                        new
+                        {
+                            provider = description.AuthenticationType,
+                            response_type = "token",
+                            client_id = Startup.PublicClientId,
+                            redirect_uri = new Uri(Request.RequestUri, returnUrl).AbsoluteUri,
+                            state = state
+                        }
+                    ),
                     State = state
                 };
                 logins.Add(login);
@@ -368,7 +410,7 @@ namespace TRMDataManager.Controllers
             result = await UserManager.AddLoginAsync(user.Id, info.Login);
             if (!result.Succeeded)
             {
-                return GetErrorResult(result); 
+                return GetErrorResult(result);
             }
             return Ok();
         }
@@ -448,8 +490,11 @@ namespace TRMDataManager.Controllers
 
                 Claim providerKeyClaim = identity.FindFirst(ClaimTypes.NameIdentifier);
 
-                if (providerKeyClaim == null || String.IsNullOrEmpty(providerKeyClaim.Issuer)
-                    || String.IsNullOrEmpty(providerKeyClaim.Value))
+                if (
+                    providerKeyClaim == null
+                    || String.IsNullOrEmpty(providerKeyClaim.Issuer)
+                    || String.IsNullOrEmpty(providerKeyClaim.Value)
+                )
                 {
                     return null;
                 }
@@ -478,7 +523,10 @@ namespace TRMDataManager.Controllers
 
                 if (strengthInBits % bitsPerByte != 0)
                 {
-                    throw new ArgumentException("strengthInBits must be evenly divisible by 8.", "strengthInBits");
+                    throw new ArgumentException(
+                        "strengthInBits must be evenly divisible by 8.",
+                        "strengthInBits"
+                    );
                 }
 
                 int strengthInBytes = strengthInBits / bitsPerByte;
