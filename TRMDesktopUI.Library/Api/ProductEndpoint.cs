@@ -32,7 +32,7 @@ namespace TRMDesktopUI.Library.Api
                 }
                 else
                 {
-                    throw new Exception(response?.ReasonPhrase);
+                    throw new Exception(response.ReasonPhrase);
                 }
             }
         }
