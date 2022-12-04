@@ -9,13 +9,21 @@ namespace TRMDesktopUI.ViewModels
 {
     public class StatusInfoViewModel : Screen
     {
-        public string Header { get; set; }
-        public string Message { get; set; }
+        public string Header { get; private set; }
+        public string Message { get; private set; }
 
         public void UpdateMessage(string header, string message)
         {
             Header = header;
             Message = message;
+
+            NotifyOfPropertyChange(() => Header);
+            NotifyOfPropertyChange(() => Message);
+        }
+
+        public void Close()
+        {
+            TryClose();
         }
     }
 }
