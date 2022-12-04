@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Dynamic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Windows;
 using AutoMapper;
 using Caliburn.Micro;
 using TRMDesktopUI.Library.Api;
@@ -19,13 +21,15 @@ namespace TRMDesktopUI.ViewModels
         ISaleEndpoint _saleEndpoint;
         IMapper _mapper;
         private readonly StatusInfoViewModel _status;
+        private readonly IWindowManager _window;
 
         public SalesViewModel(
             IProductEndpoint productEndpoint,
             ISaleEndpoint saleEndpoint,
             IConfigHelper configHelper,
             IMapper mapper,
-            StatusInfoViewModel status
+            StatusInfoViewModel status,
+            IWindowManager window
         )
         {
             _productEndpoint = productEndpoint;
@@ -33,6 +37,7 @@ namespace TRMDesktopUI.ViewModels
             _configHelper = configHelper;
             _mapper = mapper;
             _status = status;
+            _window = window;
         }
 
         protected override async void OnViewLoaded(object view)
@@ -44,10 +49,18 @@ namespace TRMDesktopUI.ViewModels
             }
             catch (Exception ex)
             {
+                dynamic settings = new ExpandoObject();
+                settings.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+                settings.ResizeMode = ResizeMode.NoResize;
+                settings.Title = "System Error";
+
                 _status.UpdateMessage(
                     "Unauthorized access",
                     "You do not have permission to interact with the sales form."
                 );
+
+                _window.ShowDialog(_status, null, settings);
+                TryClose();
             }
         }
 
