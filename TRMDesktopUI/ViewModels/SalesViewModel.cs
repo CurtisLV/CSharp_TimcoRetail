@@ -54,12 +54,21 @@ namespace TRMDesktopUI.ViewModels
                 settings.ResizeMode = ResizeMode.NoResize;
                 settings.Title = "System Error";
 
-                _status.UpdateMessage(
-                    "Unauthorized access",
-                    "You do not have permission to interact with the sales form."
-                );
+                if (ex.Message == "Unauthorized")
+                {
+                    _status.UpdateMessage(
+                        "Unauthorized access",
+                        "You do not have permission to interact with the sales form."
+                    );
 
-                _window.ShowDialog(_status, null, settings);
+                    _window.ShowDialog(_status, null, settings);
+                }
+                else
+                {
+                    _status.UpdateMessage("Fatal exception", ex.Message);
+                    _window.ShowDialog(_status, null, settings);
+                }
+
                 TryClose();
             }
         }
