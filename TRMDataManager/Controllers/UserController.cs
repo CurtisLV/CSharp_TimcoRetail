@@ -22,6 +22,9 @@ namespace TRMDataManager.Controllers
             return data.GetUserById(userId).First();
         }
 
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("Admin/GetAllUsers")]
         public void GetAllUsers()
         {
             using (var context = new ApplicationDbContext())
@@ -30,6 +33,8 @@ namespace TRMDataManager.Controllers
                 var userManager = new UserManager<ApplicationUser>(userStore);
 
                 var users = userManager.Users.ToList();
+
+                var roles = context.Roles.ToList();
             }
         }
     }
