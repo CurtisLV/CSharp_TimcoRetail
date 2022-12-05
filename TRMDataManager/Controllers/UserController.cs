@@ -1,8 +1,10 @@
 ﻿using System.Linq;
 using System.Web.Http;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using TRMDataManager.Library.DataAccess;
 using TRMDataManager.Library.Internal.Models;
+using TRMDataManager.Models;
 
 namespace TRMDataManager.Controllers
 {
@@ -18,6 +20,17 @@ namespace TRMDataManager.Controllers
             UserData data = new UserData();
 
             return data.GetUserById(userId).First();
+        }
+
+        public void GetAllUsers()
+        {
+            using (var context = new ApplicationDbContext())
+            {
+                var userStore = new UserStore<ApplicationUser>(context);
+                var userManager = new UserManager<ApplicationUser>(userStore);
+
+                var users = userManager.Users.ToList();
+            }
         }
     }
 }
