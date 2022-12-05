@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web.Http;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
@@ -22,11 +23,13 @@ namespace TRMDataManager.Controllers
             return data.GetUserById(userId).First();
         }
 
-        [AllowAnonymous]
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         [Route("Admin/GetAllUsers")]
-        public void GetAllUsers()
+        public List<ApplicationUserModel> GetAllUsers()
         {
+            List<ApplicationUserModel> output = new List<ApplicationUserModel>();
+
             using (var context = new ApplicationDbContext())
             {
                 var userStore = new UserStore<ApplicationUser>(context);
@@ -48,8 +51,12 @@ namespace TRMDataManager.Controllers
                     {
                         u.Roles.Add(r.RoleId, roles.First(x => x.Id == r.RoleId).Name);
                     }
+
+                    output.Add(u);
                 }
             }
+
+            return output;
         }
     }
 }
