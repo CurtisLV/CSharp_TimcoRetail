@@ -9,7 +9,7 @@ using TRMDesktopUI.Library.Models;
 
 namespace TRMDesktopUI.Library.Api
 {
-    public class UserEndpoint
+    public class UserEndpoint : IUserEndpoint
     {
         private readonly IAPIHelper _apiHelper;
 
