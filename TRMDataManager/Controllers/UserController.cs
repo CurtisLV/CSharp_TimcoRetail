@@ -35,6 +35,20 @@ namespace TRMDataManager.Controllers
                 var users = userManager.Users.ToList();
 
                 var roles = context.Roles.ToList();
+
+                foreach (var user in users)
+                {
+                    ApplicationUserModel u = new ApplicationUserModel()
+                    {
+                        Id = user.Id,
+                        Email = user.Email
+                    };
+
+                    foreach (var r in user.Roles)
+                    {
+                        u.Roles.Add(r.RoleId, roles.First(x => x.Id == r.RoleId).Name);
+                    }
+                }
             }
         }
     }
