@@ -58,5 +58,13 @@ namespace TRMDataManager.Controllers
 
             return output;
         }
+
+        [Authorize(Roles = "Admin")]
+        [HttpGet]
+        [Route("api/User/Admin/GetAllRoles")]
+        public Dictionary<string, string> GetAllRoles()
+        {
+            //
+        }
     }
 }
