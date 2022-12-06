@@ -45,9 +45,33 @@ namespace TRMDesktopUI.ViewModels
                 SelectedUserRoles = new BindingList<string>(
                     value.Roles.Select(x => x.Value).ToList()
                 );
-
+                // TODO - fix as it should have await
                 LoadRoles();
                 NotifyOfPropertyChange(() => SelectedUser);
+            }
+        }
+
+        private string _selectedRoleToRemove;
+
+        public string SelectedRoleToRemove
+        {
+            get { return _selectedRoleToRemove; }
+            set
+            {
+                _selectedRoleToRemove = value;
+                NotifyOfPropertyChange(() => SelectedRoleToRemove);
+            }
+        }
+
+        private string _selectedRoleToAdd;
+
+        public string SelectedRoleToAdd
+        {
+            get { return _selectedRoleToAdd; }
+            set
+            {
+                _selectedRoleToAdd = value;
+                NotifyOfPropertyChange(() => SelectedRoleToAdd);
             }
         }
 
@@ -147,6 +171,16 @@ namespace TRMDesktopUI.ViewModels
                     AvailableRoles.Add(role.Value);
                 }
             }
+        }
+
+        public async Task AddSelectedRole()
+        {
+            //
+        }
+
+        public async Task RemoveSelectedRole()
+        {
+            //
         }
     }
 }
