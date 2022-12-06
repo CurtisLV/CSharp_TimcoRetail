@@ -75,5 +75,23 @@ namespace TRMDesktopUI.Library.Api
                 }
             }
         }
+
+        public async Task RemoveUserFromRole(string userId, string roleName)
+        {
+            var data = new { userId, roleName };
+
+            using (
+                HttpResponseMessage response = await _apiHelper.ApiClient.PostAsJsonAsync(
+                    "api/User/Admin/RemoveRole",
+                    data
+                )
+            )
+            {
+                if (!response.IsSuccessStatusCode)
+                {
+                    throw new Exception(response.ReasonPhrase);
+                }
+            }
+        }
     }
 }
