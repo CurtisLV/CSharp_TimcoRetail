@@ -46,6 +46,7 @@ namespace TRMDesktopUI.ViewModels
                     value.Roles.Select(x => x.Value).ToList()
                 );
 
+                LoadRoles();
                 NotifyOfPropertyChange(() => SelectedUser);
             }
         }
@@ -71,6 +72,18 @@ namespace TRMDesktopUI.ViewModels
             {
                 _selectedUserRoles = value;
                 NotifyOfPropertyChange(() => SelectedUserRoles);
+            }
+        }
+
+        private BindingList<string> _availableRoles = new BindingList<string>();
+
+        public BindingList<string> AvailableRoles
+        {
+            get { return _availableRoles; }
+            set
+            {
+                _availableRoles = value;
+                NotifyOfPropertyChange(() => AvailableRoles);
             }
         }
 
@@ -122,6 +135,18 @@ namespace TRMDesktopUI.ViewModels
         {
             var userList = await _userEndpoint.GetAll();
             Users = new BindingList<UserModel>(userList);
+        }
+
+        private async Task LoadRoles()
+        {
+            var roles = await _userEndpoint.GetAllRoles();
+            foreach (var role in roles)
+            {
+                if (SelectedUserRoles.IndexOf(role.Value) < 0)
+                {
+                    AvailableRoles.Add(role.Value);
+                }
+            }
         }
     }
 }
