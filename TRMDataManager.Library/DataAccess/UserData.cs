@@ -6,8 +6,6 @@ namespace TRMDataManager.Library.DataAccess
 {
     public class UserData
     {
-        // [spUserLookup]
-
         public List<UserModel> GetUserById(string Id)
         {
             SqlDataAccess sql = new SqlDataAccess();
