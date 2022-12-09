@@ -13,7 +13,6 @@ namespace TRMApi.Controllers
     [Authorize]
     public class UserController : ControllerBase
     {
-        // GET: User/Details/5
         [HttpGet]
         public UserModel GetById()
         {
