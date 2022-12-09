@@ -18,7 +18,7 @@ namespace TRMApi.Controllers
         {
             SaleData data = new SaleData();
 
-            string userId = User.FindFirstValue(ClaimTypes.NameIdentifier); //RequestContext.Principal.Identity.GetUserId();
+            string userId = User.FindFirstValue(ClaimTypes.NameIdentifier); // old way - RequestContext.Principal.Identity.GetUserId();
 
             data.SaveSale(sale, userId);
         }

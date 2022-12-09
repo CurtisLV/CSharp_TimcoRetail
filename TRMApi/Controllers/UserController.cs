@@ -9,6 +9,7 @@ using TRMApi.Models;
 using TRMDataManager.Library.DataAccess;
 using TRMApi.Data;
 using System.Security.Claims;
+using TRMDataManager.Library.Internal.Models;
 
 namespace TRMApi.Controllers
 {
@@ -17,6 +18,13 @@ namespace TRMApi.Controllers
     [Authorize]
     public class UserController : ControllerBase
     {
+        private readonly ApplicationDbContext _context;
+
+        public UserController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
         [HttpGet]
         public UserModel GetById()
         {
@@ -34,30 +42,24 @@ namespace TRMApi.Controllers
         {
             List<ApplicationUserModel> output = new List<ApplicationUserModel>();
 
-            using (var context = new ApplicationDbContext())
+            var users = _context.Users.ToList();
+
+            var roles = _context.Roles.ToList();
+
+            foreach (var user in users)
             {
-                var userStore = new UserStore<ApplicationUser>(context);
-                var userManager = new UserManager<ApplicationUser>(userStore);
-
-                var users = userManager.Users.ToList();
-
-                var roles = context.Roles.ToList();
-
-                foreach (var user in users)
+                ApplicationUserModel u = new ApplicationUserModel()
                 {
-                    ApplicationUserModel u = new ApplicationUserModel()
-                    {
-                        Id = user.Id,
-                        Email = user.Email
-                    };
+                    Id = user.Id,
+                    Email = user.Email
+                };
 
-                    foreach (var r in user.Roles)
-                    {
-                        u.Roles.Add(r.RoleId, roles.First(x => x.Id == r.RoleId).Name);
-                    }
-
-                    output.Add(u);
+                foreach (var r in user.Roles)
+                {
+                    u.Roles.Add(r.RoleId, roles.First(x => x.Id == r.RoleId).Name);
                 }
+
+                output.Add(u);
             }
 
             return output;
@@ -68,12 +70,9 @@ namespace TRMApi.Controllers
         [Route("api/User/Admin/GetAllRoles")]
         public Dictionary<string, string> GetAllRoles()
         {
-            using (var context = new ApplicationDbContext())
-            {
-                var roles = context.Roles.ToDictionary(x => x.Id, x => x.Name);
+            var roles = _context.Roles.ToDictionary(x => x.Id, x => x.Name);
 
-                return roles;
-            }
+            return roles;
         }
 
         [Authorize(Roles = "Admin")]
@@ -81,13 +80,10 @@ namespace TRMApi.Controllers
         [Route("api/User/Admin/AddRole")]
         public void AddRole(UserRolePairModel pairing)
         {
-            using (var context = new ApplicationDbContext())
-            {
-                var userStore = new UserStore<ApplicationUser>(context);
-                var userManager = new UserManager<ApplicationUser>(userStore);
+            var userStore = new UserStore<ApplicationUser>(_context);
+            var userManager = new UserManager<ApplicationUser>(userStore);
 
-                userManager.AddToRole(pairing.UserId, pairing.RoleName);
-            }
+            userManager.AddToRole(pairing.UserId, pairing.RoleName);
         }
 
         [Authorize(Roles = "Admin")]
@@ -95,13 +91,10 @@ namespace TRMApi.Controllers
         [Route("api/User/Admin/RemoveRole")]
         public void RemoveRole(UserRolePairModel pairing)
         {
-            using (var context = new ApplicationDbContext())
-            {
-                var userStore = new UserStore<ApplicationUser>(context);
-                var userManager = new UserManager<ApplicationUser>(userStore);
+            var userStore = new UserStore<ApplicationUser>(_context);
+            var userManager = new UserManager<ApplicationUser>(userStore);
 
-                userManager.RemoveFromRole(pairing.UserId, pairing.RoleName);
-            }
+            userManager.RemoveFromRole(pairing.UserId, pairing.RoleName);
         }
     }
 }
