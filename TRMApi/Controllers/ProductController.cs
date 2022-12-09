@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using TRMDataManager.Library.Models;
+using TRMDataManager.Library.DataAccess;
 
 namespace TRMApi.Controllers
 {

@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using TRMDataManager.Library.DataAccess;
+using TRMDataManager.Library.Models;
 
 namespace TRMApi.Controllers
 {
