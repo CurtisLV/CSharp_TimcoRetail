@@ -6,6 +6,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using TRMApi.Models;
+using TRMDataManager.Library.DataAccess;
+using TRMApi.Data;
+using System.Security.Claims;
 
 namespace TRMApi.Controllers
 {
@@ -18,7 +21,7 @@ namespace TRMApi.Controllers
         public UserModel GetById()
         {
             // we get user ID from logged in user, and not any userID
-            string userId = RequestContext.Principal.Identity.GetUserId();
+            string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             UserData data = new UserData();
 
             return data.GetUserById(userId).First();
