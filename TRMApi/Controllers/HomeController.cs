@@ -14,11 +14,17 @@ namespace TRMApi.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly UserManager<IdentityUser> _userManager;
 
-        public HomeController(ILogger<HomeController> logger, RoleManager<IdentityRole> roleManager)
+        public HomeController(
+            ILogger<HomeController> logger,
+            RoleManager<IdentityRole> roleManager,
+            UserManager<IdentityUser> userManager
+        )
         {
             _logger = logger;
             _roleManager = roleManager;
+            _userManager = userManager;
         }
 
         public IActionResult Index()
@@ -38,6 +44,14 @@ namespace TRMApi.Controllers
                 {
                     await _roleManager.CreateAsync(new IdentityRole(role));
                 }
+            }
+
+            var user = await _userManager.FindByEmailAsync("k@k.lv");
+
+            if (user != null)
+            {
+                await _userManager.AddToRoleAsync(user, "Admin");
+                await _userManager.AddToRoleAsync(user, "Cashier");
             }
 
             return View();
