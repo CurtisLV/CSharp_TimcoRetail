@@ -44,7 +44,10 @@ namespace TRMApi.Controllers
 
             var users = _context.Users.ToList();
 
-            var roles = _context.Roles.ToList();
+            var userRoles =
+                from ur in _context.UserRoles
+                join r in _context.Roles on ur.RoleId equals r.Id
+                select new { ur.UserId, ur.RoleId, r.Name };
 
             foreach (var user in users)
             {
@@ -54,10 +57,12 @@ namespace TRMApi.Controllers
                     Email = user.Email
                 };
 
-                foreach (var r in user.Roles)
-                {
-                    u.Roles.Add(r.RoleId, roles.First(x => x.Id == r.RoleId).Name);
-                }
+                //foreach (var r in user.Roles)
+                //{
+                //    u.Roles.Add(r.RoleId, roles.First(x => x.Id == r.RoleId).Name);
+                //}
+
+
 
                 output.Add(u);
             }
