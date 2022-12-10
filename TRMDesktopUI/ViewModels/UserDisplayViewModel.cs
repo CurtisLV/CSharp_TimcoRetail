@@ -1,16 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Dynamic;
 using System.Linq;
-using System.Net.NetworkInformation;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using Caliburn.Micro;
 using TRMDesktopUI.Library.Api;
 using TRMDesktopUI.Library.Models;
-using TRMDesktopUI.Models;
 
 namespace TRMDesktopUI.ViewModels
 {
