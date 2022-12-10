@@ -91,12 +91,10 @@ namespace TRMApi.Controllers
         [Authorize(Roles = "Admin")]
         [HttpPost]
         [Route("api/User/Admin/RemoveRole")]
-        public void RemoveRole(UserRolePairModel pairing)
+        public async Task RemoveRole(UserRolePairModel pairing)
         {
-            var userStore = new UserStore<ApplicationUser>(_context);
-            var userManager = new UserManager<ApplicationUser>(userStore);
-
-            userManager.RemoveFromRole(pairing.UserId, pairing.RoleName);
+            var user = await _userManager.FindByIdAsync(pairing.UserId);
+            await _userManager.RemoveFromRoleAsync(user, pairing.RoleName);
         }
     }
 }
