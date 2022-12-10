@@ -26,13 +26,18 @@ namespace TRMApi.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public async Task<IActionResult> Privacy()
         {
             string[] roles = { "Admin", "Manager", "Cashier" };
 
             foreach (var role in roles)
             {
-                var roleExist = await
+                var roleExist = await _roleManager.RoleExistsAsync(role);
+
+                if (!roleExist)
+                {
+                    await _roleManager.CreateAsync(new IdentityRole(role));
+                }
             }
 
             return View();
