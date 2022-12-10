@@ -10,6 +10,7 @@ using TRMDataManager.Library.DataAccess;
 using TRMApi.Data;
 using System.Security.Claims;
 using TRMDataManager.Library.Internal.Models;
+using System.Threading.Tasks;
 
 namespace TRMApi.Controllers
 {
@@ -19,10 +20,12 @@ namespace TRMApi.Controllers
     public class UserController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<IdentityUser> _userManager;
 
-        public UserController(ApplicationDbContext context)
+        public UserController(ApplicationDbContext context, UserManager<IdentityUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         [HttpGet]
@@ -61,13 +64,6 @@ namespace TRMApi.Controllers
                     .Where(x => x.UserId == u.Id)
                     .ToDictionary(key => key.RoleId, val => val.Name);
 
-                //foreach (var r in user.Roles)
-                //{
-                //    u.Roles.Add(r.RoleId, roles.First(x => x.Id == r.RoleId).Name);
-                //}
-
-
-
                 output.Add(u);
             }
 
@@ -80,19 +76,16 @@ namespace TRMApi.Controllers
         public Dictionary<string, string> GetAllRoles()
         {
             var roles = _context.Roles.ToDictionary(x => x.Id, x => x.Name);
-
             return roles;
         }
 
         [Authorize(Roles = "Admin")]
         [HttpPost]
         [Route("api/User/Admin/AddRole")]
-        public void AddRole(UserRolePairModel pairing)
+        public async Task AddRole(UserRolePairModel pairing)
         {
-            var userStore = new UserStore<ApplicationUser>(_context);
-            var userManager = new UserManager<ApplicationUser>(userStore);
-
-            userManager.AddToRole(pairing.UserId, pairing.RoleName);
+            var user = await _userManager.FindByIdAsync(pairing.UserId);
+            await _userManager.AddToRoleAsync(user, pairing.RoleName);
         }
 
         [Authorize(Roles = "Admin")]
