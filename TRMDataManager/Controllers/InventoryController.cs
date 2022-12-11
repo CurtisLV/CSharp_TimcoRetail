@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
+﻿using System.Collections.Generic;
 using System.Web.Http;
-using Microsoft.Extensions.Configuration;
 using TRMDataManager.Library.DataAccess;
 using TRMDataManager.Library.Models;
 
@@ -13,17 +8,10 @@ namespace TRMDataManager.Controllers
     [Authorize]
     public class InventoryController : ApiController
     {
-        private readonly IConfiguration _config;
-
-        public InventoryController(IConfiguration config)
-        {
-            _config = config;
-        }
-
         [Authorize(Roles = "Manager,Admin")]
         public List<InventoryModel> Get()
         {
-            InventoryData data = new InventoryData(_config);
+            InventoryData data = new InventoryData();
 
             return data.GetInventory();
         }
@@ -31,7 +19,7 @@ namespace TRMDataManager.Controllers
         [Authorize(Roles = "Admin")]
         public void Post(InventoryModel item)
         {
-            InventoryData data = new InventoryData(_config);
+            InventoryData data = new InventoryData();
             data.SaveInventoryRecord(item);
         }
     }
