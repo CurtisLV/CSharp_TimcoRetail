@@ -7,6 +7,8 @@ using System.Security.Claims;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace TRMApi.Controllers
 {
@@ -65,6 +67,23 @@ namespace TRMApi.Controllers
                     new DateTimeOffset(DateTime.Now.AddDays(1)).ToUnixTimeSeconds().ToString()
                 ),
             };
+
+            foreach (var role in roles)
+            {
+                claims.Add(new Claim(ClaimTypes.Role, role.Name));
+            }
+
+            var token = new JwtSecurityToken(
+                new JwtHeader(
+                    new SigningCredentials(
+                        new SymmetricSecurityKey(
+                            Encoding.UTF8.GetBytes("MySecretKeyIsSecretSoDoNotTell")
+                        ),
+                        SecurityAlgorithms.HmacSha256
+                    )
+                ),
+                new JwtPayload(claims)
+            );
         }
     }
 }
