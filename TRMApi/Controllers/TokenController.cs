@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using TRMApi.Data;
+using System.Linq;
 
 namespace TRMApi.Controllers
 {
@@ -20,7 +21,14 @@ namespace TRMApi.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(string username, string password, string grant_type)
         {
-            //
+            if (await IsValidUsernameAndPassword(username, password))
+            {
+                //
+            }
+            else
+            {
+                return BadRequest();
+            }
         }
 
         private async Task<bool> IsValidUsernameAndPassword(string username, string password)
@@ -28,6 +36,17 @@ namespace TRMApi.Controllers
             var user = await _userManager.FindByEmailAsync(username);
 
             return await _userManager.CheckPasswordAsync(user, password);
+        }
+
+        private async Task<dynamic> GenerateToken(string username)
+        {
+            var user = await _userManager.FindByEmailAsync(username);
+
+            var roles =
+                from ur in _context.UserRoles
+                join r in _context.Roles on ur.RoleId equals r.Id
+                where ur.UserId == user.Id
+                select new { ur.UserId, ur.RoleId, r.Name };
         }
     }
 }
