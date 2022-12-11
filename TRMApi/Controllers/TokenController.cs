@@ -3,6 +3,10 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using TRMApi.Data;
 using System.Linq;
+using System.Security.Claims;
+using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
+using System;
 
 namespace TRMApi.Controllers
 {
@@ -47,6 +51,20 @@ namespace TRMApi.Controllers
                 join r in _context.Roles on ur.RoleId equals r.Id
                 where ur.UserId == user.Id
                 select new { ur.UserId, ur.RoleId, r.Name };
+
+            var claims = new List<Claim>()
+            {
+                new Claim(ClaimTypes.Name, username),
+                new Claim(ClaimTypes.NameIdentifier, user.Id),
+                new Claim(
+                    JwtRegisteredClaimNames.Nbf,
+                    new DateTimeOffset(DateTime.Now).ToUnixTimeSeconds().ToString()
+                ),
+                new Claim(
+                    JwtRegisteredClaimNames.Exp,
+                    new DateTimeOffset(DateTime.Now.AddDays(1)).ToUnixTimeSeconds().ToString()
+                ),
+            };
         }
     }
 }
