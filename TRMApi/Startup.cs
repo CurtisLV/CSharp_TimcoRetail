@@ -12,7 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using TRMApi.Data;
-//using Microsoft.OpenApi.Models;
+using Microsoft.OpenApi.Models;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
@@ -66,6 +66,17 @@ namespace TRMApi
                         };
                     }
                 );
+
+            services.AddSwaggerGen(setup =>
+            {
+                setup.SwaggerDoc(
+                        "v1",
+                        new OpenApiInfo()
+                        {
+                            Title = "TimCo Retail Manager API",
+                            Version = "v1"
+                        })
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
