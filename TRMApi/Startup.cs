@@ -70,12 +70,9 @@ namespace TRMApi
             services.AddSwaggerGen(setup =>
             {
                 setup.SwaggerDoc(
-                        "v1",
-                        new OpenApiInfo()
-                        {
-                            Title = "TimCo Retail Manager API",
-                            Version = "v1"
-                        })
+                    "v1",
+                    new OpenApiInfo() { Title = "TimCo Retail Manager API", Version = "v1" }
+                );
             });
         }
 
@@ -100,6 +97,12 @@ namespace TRMApi
 
             app.UseAuthentication();
             app.UseAuthorization();
+
+            app.UseSwagger();
+            app.UseSwaggerUI(x =>
+            {
+                x.SwaggerEndpoint("/swagger/v1/swagger.json")
+            })
 
             app.UseEndpoints(endpoints =>
             {
