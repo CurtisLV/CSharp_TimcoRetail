@@ -101,8 +101,8 @@ namespace TRMApi
             app.UseSwagger();
             app.UseSwaggerUI(x =>
             {
-                x.SwaggerEndpoint("/swagger/v1/swagger.json")
-            })
+                x.SwaggerEndpoint("/swagger/v1/swagger.json", "TimCo API v1");
+            });
 
             app.UseEndpoints(endpoints =>
             {
