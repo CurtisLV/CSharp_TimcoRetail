@@ -29,7 +29,7 @@ namespace TRMApi.Controllers
         {
             if (await IsValidUsernameAndPassword(username, password))
             {
-                //
+                return new ObjectResult(await GenerateToken(username)); // sends object back to caller as action result - randomized token
             }
             else
             {
@@ -77,13 +77,21 @@ namespace TRMApi.Controllers
                 new JwtHeader(
                     new SigningCredentials(
                         new SymmetricSecurityKey(
-                            Encoding.UTF8.GetBytes("MySecretKeyIsSecretSoDoNotTell")
+                            Encoding.UTF8.GetBytes("MySecretKeyIsSecretSoDoNotTell") // TODO move to appsettings json and randomize
                         ),
                         SecurityAlgorithms.HmacSha256
                     )
                 ),
                 new JwtPayload(claims)
             );
+
+            var output = new
+            {
+                Access_Token = new JwtSecurityTokenHandler().WriteToken(token),
+                UserName = username
+            };
+
+            return output;
         }
     }
 }
