@@ -74,7 +74,7 @@ namespace TRMDesktopUI
                 );
         }
 
-        protected override void OnStartup(object sender, StartupEventArgs e)
+        protected override async void OnStartup(object sender, StartupEventArgs e)
         {
             //await DisplayRootViewForAsync<ShellViewModel>(); // add async to the method
             await DisplayRootViewForAsync<ShellViewModel>();
