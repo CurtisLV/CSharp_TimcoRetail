@@ -12,8 +12,9 @@ Application Ideas:
 
 Phase 2 roadmap
 1. Take advantage of .NET Core (moved to it but never used all major advantages of using to it)
-2. CI/CD process with Azure DevOps (move source code to Azure DevOps?)
-3. Move API to Azure
-4. Move the databases to Azure SQL
-5. Deploy the desktop app to Azure Blob storage
-6. Web-based inventory control system
+2. Setup a simple taskboard in Azure DevOps
+3. CI/CD process with Azure DevOps (move source code to Azure DevOps?)
+4. Move API to Azure
+5. Move the databases to Azure SQL
+6. Deploy the desktop app to Azure Blob storage
+7. Web-based inventory control system
