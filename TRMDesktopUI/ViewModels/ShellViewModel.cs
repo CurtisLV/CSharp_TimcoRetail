@@ -62,12 +62,6 @@ namespace TRMDesktopUI.ViewModels
             NotifyOfPropertyChange(() => IsLoggedIn);
         }
 
-        //public void Handle(LogOnEvent message)
-        //{
-        //    ActivateItem(_salesVM);
-        //    NotifyOfPropertyChange(() => IsLoggedIn);
-        //}
-
         public async Task HandleAsync(LogOnEvent message, CancellationToken cancellationToken)
         {
             await ActivateItemAsync(_salesVM, cancellationToken);
