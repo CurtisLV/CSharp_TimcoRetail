@@ -52,6 +52,8 @@ namespace TRMApi
             services.AddTransient<ISqlDataAccess, SqlDataAccess>();
             services.AddTransient<IProductData, ProductData>();
             services.AddTransient<ISaleData, SaleData>();
+            services.AddTransient<IUserData, UserData>();
+
             // Personal services end
 
             services
