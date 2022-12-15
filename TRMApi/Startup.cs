@@ -50,6 +50,7 @@ namespace TRMApi
             // transient = short term
             services.AddTransient<IInventoryData, InventoryData>();
             services.AddTransient<ISqlDataAccess, SqlDataAccess>();
+            services.AddTransient<IProductData, ProductData>();
             // Personal services end
 
             services

@@ -1,29 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Configuration;
 using TRMDataManager.Library.Internal.DataAccess;
-using TRMDataManager.Library.Internal.Models;
 using TRMDataManager.Library.Models;
 
 namespace TRMDataManager.Library.DataAccess
 {
-    public class ProductData
+    public class ProductData : IProductData
     {
-        private readonly IConfiguration _config;
+        private readonly ISqlDataAccess _sql;
 
-        public ProductData(IConfiguration config)
+        public ProductData(ISqlDataAccess sql)
         {
-            _config = config;
+            _sql = sql;
         }
 
         public List<ProductModel> GetProducts()
         {
-            SqlDataAccess sql = new SqlDataAccess(_config);
-
-            var output = sql.LoadData<ProductModel, dynamic>(
+            var output = _sql.LoadData<ProductModel, dynamic>(
                 "dbo.spProduct_GetAll",
                 new { },
                 "TRMData"
@@ -34,9 +27,7 @@ namespace TRMDataManager.Library.DataAccess
 
         public ProductModel GetProductById(int productId)
         {
-            SqlDataAccess sql = new SqlDataAccess(_config);
-
-            var output = sql.LoadData<ProductModel, dynamic>(
+            var output = _sql.LoadData<ProductModel, dynamic>(
                     "dbo.spProduct_GetById",
                     new { Id = productId },
                     "TRMData"
