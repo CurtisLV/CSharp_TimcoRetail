@@ -16,6 +16,7 @@ using Microsoft.OpenApi.Models;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using TRMDataManager.Library.DataAccess;
+using TRMDataManager.Library.Internal.DataAccess;
 
 namespace TRMApi
 {
@@ -48,7 +49,7 @@ namespace TRMApi
 
             // transient = short term
             services.AddTransient<IInventoryData, InventoryData>();
-
+            services.AddTransient<ISqlDataAccess, SqlDataAccess>();
             // Personal services end
 
             services
