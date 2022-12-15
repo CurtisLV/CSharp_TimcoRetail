@@ -1,7 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using System.Collections.Generic;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
@@ -11,7 +9,6 @@ using TRMApi.Data;
 using System.Security.Claims;
 using TRMDataManager.Library.Internal.Models;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Configuration;
 
 namespace TRMApi.Controllers
 {
@@ -22,17 +19,17 @@ namespace TRMApi.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly UserManager<IdentityUser> _userManager;
-        private readonly IConfiguration _config;
+        private readonly IUserData _data;
 
         public UserController(
             ApplicationDbContext context,
             UserManager<IdentityUser> userManager,
-            IConfiguration config
+            IUserData data
         )
         {
             _context = context;
             _userManager = userManager;
-            _config = config;
+            _data = data;
         }
 
         [HttpGet]
@@ -40,9 +37,7 @@ namespace TRMApi.Controllers
         {
             // we get user ID from logged in user, and not any userID
             string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            UserData data = new UserData(_config);
-
-            return data.GetUserById(userId).First();
+            return _data.GetUserById(userId).First();
         }
 
         [Authorize(Roles = "Admin")]
