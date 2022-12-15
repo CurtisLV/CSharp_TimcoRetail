@@ -9,14 +9,21 @@ using System.Text;
 using System.Threading.Tasks;
 using Dapper;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 
 namespace TRMDataManager.Library.Internal.DataAccess
 {
     public class SqlDataAccess : IDisposable, ISqlDataAccess
     {
-        public SqlDataAccess(IConfiguration config)
+        private IDbConnection _connection;
+        private IDbTransaction _transaction;
+        private readonly IConfiguration _config;
+        private readonly ILogger _logger;
+
+        public SqlDataAccess(IConfiguration config, ILogger<SqlDataAccess> logger)
         {
             _config = config;
+            _logger = logger;
         }
 
         public string GetConnectionString(string name)
@@ -56,9 +63,7 @@ namespace TRMDataManager.Library.Internal.DataAccess
             }
         }
 
-        private IDbConnection _connection;
-        private IDbTransaction _transaction;
-        private readonly IConfiguration _config;
+        public ILogger<SqlDataAccess> Logger { get; }
 
         public void StartTransaction(string connectionStringName)
         {
@@ -112,7 +117,14 @@ namespace TRMDataManager.Library.Internal.DataAccess
 
         public void Dispose()
         {
-            CommitTransaction();
+            try
+            {
+                CommitTransaction();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "");
+            }
         }
     }
 }
