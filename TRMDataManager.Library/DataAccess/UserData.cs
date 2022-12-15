@@ -16,8 +16,11 @@ namespace TRMDataManager.Library.DataAccess
 
         public List<UserModel> GetUserById(string Id)
         {
-            var p = new { Id = Id };
-            var output = _sql.LoadData<UserModel, dynamic>("dbo.spUserLookup", p, "TRMData");
+            var output = _sql.LoadData<UserModel, dynamic>(
+                "dbo.spUserLookup",
+                new { Id },
+                "TRMData"
+            );
 
             return output;
         }
