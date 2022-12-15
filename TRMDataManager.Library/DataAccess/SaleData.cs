@@ -7,13 +7,15 @@ using TRMDataManager.Library.Models;
 
 namespace TRMDataManager.Library.DataAccess
 {
-    public class SaleData
+    public class SaleData : ISaleData
     {
-        private readonly IConfiguration _config;
+        private readonly IProductData _productData;
+        private readonly ISqlDataAccess _sql;
 
-        public SaleData(IConfiguration config)
+        public SaleData(IProductData productData, ISqlDataAccess sql)
         {
-            _config = config;
+            _productData = productData;
+            _sql = sql;
         }
 
         public void SaveSale(SaleModel saleInfo, string cashierId)
@@ -21,7 +23,6 @@ namespace TRMDataManager.Library.DataAccess
             // TODO: Make it SOLID/DRY/Better
             // Start filling in the models we will save to DB
             List<SaleDetailDBModel> details = new List<SaleDetailDBModel>();
-            ProductData products = new ProductData(_config);
 
             decimal taxRate = ConfigHelper.GetTaxRate() / 100;
 
@@ -35,7 +36,7 @@ namespace TRMDataManager.Library.DataAccess
 
                 // Get info about the product
 
-                var productInfo = products.GetProductById(detail.ProductId);
+                var productInfo = _productData.GetProductById(detail.ProductId);
 
                 if (productInfo == null)
                 {
@@ -65,46 +66,41 @@ namespace TRMDataManager.Library.DataAccess
 
             sale.Total = sale.SubTotal + sale.Tax;
 
-            using (SqlDataAccess sql = new SqlDataAccess(_config))
+            try
             {
-                try
+                _sql.StartTransaction("TRMData");
+                // Save the Sale model
+                _sql.SaveDataInTransaction("dbo.spSale_Insert", sale);
+
+                // Get ID from sale model
+
+                sale.Id = _sql.LoadDataInTransaction<int, dynamic>(
+                        "spSale_Lookup",
+                        new { sale.CashierId, sale.SaleDate }
+                    )
+                    .FirstOrDefault();
+
+                // Finish filling in the sale detail models
+
+                foreach (SaleDetailDBModel item in details)
                 {
-                    sql.StartTransaction("TRMData");
-                    // Save the Sale model
-                    sql.SaveDataInTransaction("dbo.spSale_Insert", sale);
-
-                    // Get ID from sale model
-
-                    sale.Id = sql.LoadDataInTransaction<int, dynamic>(
-                            "spSale_Lookup",
-                            new { sale.CashierId, sale.SaleDate }
-                        )
-                        .FirstOrDefault();
-
-                    // Finish filling in the sale detail models
-
-                    foreach (SaleDetailDBModel item in details)
-                    {
-                        item.SaleID = sale.Id;
-                        // Save the sale detail models
-                        sql.SaveDataInTransaction("dbo.spSaleDetail_Insert", item);
-                    }
-
-                    sql.CommitTransaction();
+                    item.SaleID = sale.Id;
+                    // Save the sale detail models
+                    _sql.SaveDataInTransaction("dbo.spSaleDetail_Insert", item);
                 }
-                catch
-                {
-                    sql.RollbackTransaction();
-                    throw;
-                }
+
+                _sql.CommitTransaction();
+            }
+            catch
+            {
+                _sql.RollbackTransaction();
+                throw;
             }
         }
 
         public List<SaleReportModel> GetSaleReport()
         {
-            SqlDataAccess sql = new SqlDataAccess(_config);
-
-            var output = sql.LoadData<SaleReportModel, dynamic>(
+            var output = _sql.LoadData<SaleReportModel, dynamic>(
                 "dbo.spSale_SaleReport",
                 new { },
                 "TRMData"

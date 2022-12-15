@@ -13,17 +13,17 @@ namespace TRMApi.Controllers
     [Authorize(Roles = "Cashier")]
     public class ProductController : ControllerBase
     {
-        private readonly IProductData _data;
+        private readonly IProductData _productData;
 
-        public ProductController(IConfiguration config, IProductData data)
+        public ProductController(IProductData productData)
         {
-            _data = data;
+            _productData = productData;
         }
 
         [HttpGet]
         public List<ProductModel> Get()
         {
-            return _data.GetProducts();
+            return _productData.GetProducts();
         }
     }
 }
