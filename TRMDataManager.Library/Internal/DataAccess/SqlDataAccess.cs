@@ -114,11 +114,5 @@ namespace TRMDataManager.Library.Internal.DataAccess
         {
             CommitTransaction();
         }
-
-        // Open connection/start transaction method
-        // Load using the transaction
-        // Save using the transaction
-        // Close connection/close connection
-        // Dispose
     }
 }

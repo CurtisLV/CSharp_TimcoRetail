@@ -15,6 +15,7 @@ using TRMApi.Data;
 using Microsoft.OpenApi.Models;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using TRMDataManager.Library.DataAccess;
 
 namespace TRMApi
 {
@@ -42,6 +43,13 @@ namespace TRMApi
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+            // Personal services start
+
+            // transient = short term
+            services.AddTransient<IInventoryData, InventoryData>();
+
+            // Personal services end
 
             services
                 .AddAuthentication(options =>
