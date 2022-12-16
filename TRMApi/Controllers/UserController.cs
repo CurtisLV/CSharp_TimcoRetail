@@ -9,6 +9,7 @@ using TRMApi.Data;
 using System.Security.Claims;
 using TRMDataManager.Library.Internal.Models;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
 namespace TRMApi.Controllers
 {
@@ -20,16 +21,19 @@ namespace TRMApi.Controllers
         private readonly ApplicationDbContext _context;
         private readonly UserManager<IdentityUser> _userManager;
         private readonly IUserData _data;
+        private readonly ILogger<UserController> _logger;
 
         public UserController(
             ApplicationDbContext context,
             UserManager<IdentityUser> userManager,
-            IUserData data
+            IUserData data,
+            ILogger<UserController> logger
         )
         {
             _context = context;
             _userManager = userManager;
             _data = data;
+            _logger = logger;
         }
 
         [HttpGet]
@@ -86,7 +90,18 @@ namespace TRMApi.Controllers
         [Route("Admin/AddRole")]
         public async Task AddRole(UserRolePairModel pairing)
         {
+            string loggedInUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var loggedInUser = _data.GetUserById(loggedInUserId).First();
+
             var user = await _userManager.FindByIdAsync(pairing.UserId);
+
+            _logger.LogInformation(
+                "Admin {Admin} added user {User} to role {Role}.",
+                loggedInUserId,
+                user.Id,
+                pairing.RoleName
+            );
+
             await _userManager.AddToRoleAsync(user, pairing.RoleName);
         }
 
