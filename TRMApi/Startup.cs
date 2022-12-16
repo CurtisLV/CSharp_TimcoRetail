@@ -41,7 +41,6 @@ namespace TRMApi
             services.AddRazorPages();
 
             // Personal services start
-
             // transient = short term
             services.AddTransient<IInventoryData, InventoryData>();
             services.AddTransient<ISqlDataAccess, SqlDataAccess>();
@@ -65,7 +64,9 @@ namespace TRMApi
                         {
                             ValidateIssuerSigningKey = true,
                             IssuerSigningKey = new SymmetricSecurityKey(
-                                Encoding.UTF8.GetBytes("MySecretKeyIsSecretSoDoNotTell")
+                                Encoding.UTF8.GetBytes(
+                                    Configuration.GetValue<string>("Secrets:SecurityKey")
+                                )
                             ),
                             ValidateIssuer = false,
                             ValidateAudience = false,
