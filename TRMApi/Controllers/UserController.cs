@@ -111,8 +111,6 @@ namespace TRMApi.Controllers
         public async Task RemoveRole(UserRolePairModel pairing)
         {
             string loggedInUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var loggedInUser = _data.GetUserById(loggedInUserId).First();
-
             var user = await _userManager.FindByIdAsync(pairing.UserId);
 
             _logger.LogInformation(
