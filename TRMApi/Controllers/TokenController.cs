@@ -9,7 +9,6 @@ using System.IdentityModel.Tokens.Jwt;
 using System;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
-using System.Configuration;
 using Microsoft.Extensions.Configuration;
 
 namespace TRMApi.Controllers
