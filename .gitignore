@@ -360,3 +360,4 @@ MigrationBackup/
 /TRMDataManager/Scripts/jquery-3.6.1.min.js
 /TRMDataManager/Scripts/jquery-3.6.1.js
 /TRMDataManager/Scripts/jquery-3.6.1.intellisense.js
+/TRMApi/appsettings.json
