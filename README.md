@@ -38,3 +38,14 @@ The project is developed using .Net framework and later updated to .Net core 3.1
 29.  Upgrading to .NET Core: From WebAPI to ASP.NET Core API
 30.  Upgrading to .NET Core: Adding JWT Authentication to Our API
 31.  Upgrading to .NET Core: WPF to .NET Core 3.1
+
+
+## Phase 2
+
+1.  Planning Phase 2
+2.  Implementing .NET Core Features
+3.  Using Azure DevOps Boards
+4.  Moving from GitHub to Azure DevOps
+5.  Deploying ASP.NET Core API to Azure Web Apps
+6.  Deploying to Azure SQL Databases
+7.  Continious Integration Builds in Azure DevOps
