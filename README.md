@@ -49,3 +49,4 @@ The project is developed using .Net framework and later updated to .Net core 3.1
 5.  Deploying ASP.NET Core API to Azure Web Apps
 6.  Deploying to Azure SQL Databases
 7.  Continious Integration Builds in Azure DevOps
+8.  Multi-app Continious Integration 
